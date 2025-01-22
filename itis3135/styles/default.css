@@ -1,10 +1,8 @@
 body {
     text-align: center;
     color: darkslategray;
-    /* More readable and less harsh than red */
     background-color: cornsilk;
     font-family: Arial, sans-serif;
-    /* Adds a clean and modern look */
     margin: 0;
     padding: 0;
 }
@@ -12,16 +10,13 @@ body {
 h1,
 h2 {
     color: steelblue;
-    /* Softer contrast with the cornsilk background */
     margin-bottom: 10px;
 }
 
 h1 {
     font-size: 2.5em;
-    /* Emphasize the main heading */
 }
 
 h2 {
     font-size: 2em;
-    /* Slightly smaller than h1 */
 }
