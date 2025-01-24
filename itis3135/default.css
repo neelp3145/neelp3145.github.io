@@ -1,20 +1,10 @@
 body {
     text-align: center;
     color: black;
+    background-color: cornsilk;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
-}
-
-.top-section {
-    background-color: cornsilk;
-    height: 75vh;
-}
-
-.bottom-section {
-    background-color: black;
-    height: 25vh;
 }
 
 h1,
