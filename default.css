@@ -7,16 +7,35 @@ body {
     padding: 0;
 }
 
+.nav-links {
+    padding: 20px 0;
+}
+
+.nav-links a {
+    color: blue;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: transparent;
+}
+
+.nav-links a:visited {
+    color: blue;
+}
+
+.nav-links a::after {
+    content: " || ";
+    color: blue;
+}
+
+.nav-links a:last-child::after {
+    content: "";
+}
+
 h1,
 h2 {
     color: black;
     margin-bottom: 10px;
-}
-
-h1 {
-    font-size: 2.5em;
-}
-
-h2 {
     font-size: 2em;
 }

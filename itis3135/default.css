@@ -12,7 +12,7 @@ body {
 }
 
 .nav-links a {
-    color: lightskyblue;
+    color: blue;
     text-decoration: none;
 }
 
@@ -21,12 +21,12 @@ body {
 }
 
 .nav-links a:visited {
-    color: lightskyblue;
+    color: blue;
 }
 
 .nav-links a::after {
     content: " || ";
-    color: lightskyblue;
+    color: blue;
 }
 
 .nav-links a:last-child::after {
