@@ -25,12 +25,7 @@ body {
 }
 
 .nav-links a::after {
-    content: " || ";
     color: blue;
-}
-
-.nav-links a:last-child::after {
-    content: "";
 }
 
 h1,
