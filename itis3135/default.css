@@ -7,6 +7,27 @@ body {
     padding: 0;
 }
 
+<style>.nav-links a {
+    color: blue;
+}
+
+.nav-links a:hover {
+    color: transparent;
+}
+
+.nav-links a:visited {
+    color: blue;
+}
+
+.nav-links a::after {
+    content: " || ";
+    color: black;
+}
+
+.nav-links a:last-child::after {
+    content: "";
+}
+
 h1,
 h2 {
     color: black;
