@@ -8,7 +8,7 @@ body {
 }
 
 .nav-links a {
-    color: blue;
+    color: lightskyblue;
 }
 
 .nav-links a:hover {
@@ -16,12 +16,12 @@ body {
 }
 
 .nav-links a:visited {
-    color: blue;
+    color: lightskyblue;
 }
 
 .nav-links a::after {
     content: " || ";
-    color: black;
+    color: lightskyblue;
 }
 
 .nav-links a:last-child::after {
