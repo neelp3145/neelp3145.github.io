@@ -1,4 +1,6 @@
-body {
+body,
+h1,
+h2 {
     text-align: center;
     color: black;
     background-color: cornsilk;
@@ -29,13 +31,4 @@ body {
 
 .nav-links a::after {
     color: blue;
-}
-
-h1,
-h2 {
-    color: black;
-    margin-bottom: 10px;
-    font-size: 2em;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
