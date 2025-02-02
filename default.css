@@ -1,9 +1,12 @@
-body {
+body,
+h1,
+h2 {
     text-align: center;
     color: black;
     background-color: cornsilk;
     font-family: Arial, sans-serif;
-    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 0px;
     padding: 0;
 }
 
@@ -17,7 +20,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: transparent;
+    color: blue;
 }
 
 .nav-links a:visited {
@@ -31,11 +34,4 @@ body {
 
 .nav-links a:last-child::after {
     content: "";
-}
-
-h1,
-h2 {
-    color: black;
-    margin-bottom: 10px;
-    font-size: 2em;
 }
