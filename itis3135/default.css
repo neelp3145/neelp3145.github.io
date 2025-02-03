@@ -1,13 +1,15 @@
 body,
 h1,
-h2 {
+h2,
+p {
     text-align: center;
     color: black;
     background-color: cornsilk;
     font-family: Arial, sans-serif;
-    margin-top: 10px;
-    margin-bottom: 0px;
-    padding: 0;
+}
+
+body {
+    font-size: medium;
 }
 
 .nav-links {
