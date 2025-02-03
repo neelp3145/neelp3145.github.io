@@ -5,13 +5,25 @@ h2 {
     color: black;
     background-color: cornsilk;
     font-family: Arial, sans-serif;
-    margin-top: 10px;
-    margin-bottom: 0px;
-    padding: 0;
+}
+
+ui,
+li {
+    text-align: left;
+    text-wrap: wrap;
+}
+
+body {
+    font-size: medium;
+}
+
+nav>a {
+    margin-top: -4px;
 }
 
 .nav-links {
     padding: 20px 0;
+    margin-bottom: 10px;
 }
 
 .nav-links a {
@@ -28,10 +40,10 @@ h2 {
 }
 
 .nav-links a::after {
-    content: " || ";
     color: blue;
 }
 
-.nav-links a:last-child::after {
-    content: "";
+figure {
+    text-align: center;
+    font-style: italic;
 }
