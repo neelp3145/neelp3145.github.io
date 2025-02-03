@@ -1,7 +1,6 @@
 body,
 h1,
-h2,
-p {
+h2 {
     text-align: center;
     color: black;
     background-color: cornsilk;
@@ -10,6 +9,10 @@ p {
 
 body {
     font-size: medium;
+}
+
+nav>a {
+    margin-top: -4px;
 }
 
 .nav-links {
