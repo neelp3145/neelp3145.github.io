@@ -42,3 +42,12 @@ nav>a {
 .nav-links a::after {
     color: blue;
 }
+
+figure {
+    text-align: center;
+    font-style: italic;
+}
+
+img {
+    width: 60%
+}
