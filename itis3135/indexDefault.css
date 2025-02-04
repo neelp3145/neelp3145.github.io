@@ -17,19 +17,15 @@ body {
     font-size: medium;
 }
 
-nav>a {
-    margin-top: -4px;
-}
-
 .nav-links {
     padding: 20px 0;
     margin-bottom: 10px;
     color: blue;
+    text-decoration: none;
 }
 
 .nav-links a {
     color: blue;
-    text-decoration: none;
 }
 
 .nav-links a:hover {
@@ -40,7 +36,7 @@ nav>a {
     color: blue;
 }
 
-.nav-links a::after {
+.nav-links a:visited:after {
     color: blue;
 }
 
