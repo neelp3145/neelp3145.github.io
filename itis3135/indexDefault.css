@@ -17,22 +17,22 @@ body {
     font-size: medium;
 }
 
-.nav>a {
+nav>a {
     padding: 20px 0;
     margin-bottom: 10px;
     color: blue;
     text-decoration: none;
 }
 
-.nav>a:hover {
+nav>a:hover {
     color: blue;
 }
 
-.nav>a:visited {
+nav>a:visited {
     color: blue;
 }
 
-.nav>a:visited:after {
+nav>a:visited:after {
     color: blue;
 }
 
