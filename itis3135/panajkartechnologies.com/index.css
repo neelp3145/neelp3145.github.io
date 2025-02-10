@@ -1,0 +1,47 @@
+body,
+h1,
+h2 {
+    text-align: center;
+    color: black;
+    background-color: cornsilk;
+    font-family: Arial, sans-serif;
+}
+
+ui,
+li {
+    text-align: left;
+    text-wrap: wrap;
+}
+
+body {
+    font-size: medium;
+}
+
+nav>a {
+    padding: 20px 0;
+    margin-bottom: 10px;
+    color: blue;
+    text-decoration: none;
+}
+
+nav>a:hover {
+    color: blue;
+}
+
+nav>a:visited {
+    color: blue;
+}
+
+nav>a:visited:after {
+    color: blue;
+}
+
+figure {
+    text-align: center;
+    font-style: italic;
+}
+
+.img {
+    width: 100px;
+    height: 100px;
+}
