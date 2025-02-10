@@ -40,3 +40,9 @@ figure {
     text-align: center;
     font-style: italic;
 }
+
+img {
+    width: 60px;
+    height: auto;
+    margin-right: 15px;
+}
