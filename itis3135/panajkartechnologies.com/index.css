@@ -1,6 +1,4 @@
-body,
-h1,
-h2 {
+* {
     text-align: center;
     color: black;
     background-color: cornsilk;
@@ -13,6 +11,7 @@ li {
     text-wrap: wrap;
 }
 
+h3,
 body {
     font-size: medium;
 }
