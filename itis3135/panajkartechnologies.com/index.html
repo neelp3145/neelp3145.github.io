@@ -5,96 +5,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panajkar Technologies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         body {
-            text-align: center;
-            color: black;
-            background-color: cornsilk;
-            font-family: Arial, sans-serif;
-            font-size: medium;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+            text-align: center;
         }
 
         header {
-            background-color: cornsilk;
+            background: #1E1E2F;
             padding: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
         }
 
         header img {
-            width: 60px;
+            width: 50px;
             height: auto;
             margin-right: 15px;
         }
 
         h1 {
+            font-size: 26px;
+            font-weight: 600;
             margin: 0;
-            font-size: 24px;
+            color: #00aaff;
         }
 
         main {
-            padding: 20px;
-            max-width: 800px;
-            margin: 20px auto;
-            text-align: center;
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
         }
 
         h2 {
-            font-size: 22px;
-            color: black;
+            font-size: 24px;
+            color: #00ccff;
+        }
+
+        .services {
+            background: #1E1E2F;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+            margin: 20px 0;
         }
 
         ul {
-            list-style: square inside;
-            padding-left: 0;
-            text-align: left;
-            margin: 0 auto;
-            width: fit-content;
+            list-style: none;
+            padding: 0;
         }
 
         li {
-            text-align: left;
-            text-wrap: wrap;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        li:last-child {
+            border-bottom: none;
         }
 
         .contact-info {
-            background: #f5deb3;
+            background: #282842;
             padding: 15px;
-            margin-top: 20px;
-            border-left: 5px solid #333;
-            font-style: italic;
+            border-radius: 8px;
             display: inline-block;
             text-align: left;
+            font-size: 14px;
+            color: #ccc;
+            margin-top: 20px;
         }
 
         footer {
-            background: cornsilk;
-            color: black;
+            background: #1E1E2F;
+            color: #ffffff;
             text-align: center;
-            padding: 15px;
-            margin-top: 20px;
+            padding: 20px;
+            margin-top: 30px;
         }
 
         .footer-nav a {
-            padding: 20px 0;
-            margin-bottom: 10px;
-            color: blue;
+            color: #00ccff;
             text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+            transition: color 0.3s;
         }
 
-        .footer-nav a:hover,
-        .footer-nav a:visited,
-        .footer-nav a:visited:after {
-            color: blue;
+        .footer-nav a:hover {
+            color: #ff9900;
         }
 
-        figure {
-            text-align: center;
-            font-style: italic;
+        .validate-icons img {
+            width: 80px;
+            height: auto;
+            margin: 10px;
         }
     </style>
 </head>
@@ -102,36 +114,24 @@
 <body>
     <header>
         <img src="../../images/nplogo.png" alt="Panajkar Technologies Logo">
-        <h1>Panajkar Technologies - Innovating the Future</h1>
+        <h1>Panajkar Technologies</h1>
     </header>
 
     <main>
-        <h2>Panajkar Technologies' Services</h2>
-        <p>
-            At Panajkar Technologies, we specialize in delivering cutting-edge software solutions, IT consulting, and
-            innovative designs.
-            Our mission is to provide scalable, high-performance systems tailored to our clients' needs. With a team of
-            highly skilled
-            professionals, we turn challenges into opportunities and ideas into reality.
-        </p>
-
-        <h3>Why Choose Us?</h3>
-        <ul>
-            <li>🚀 Industry-leading expertise in scalable solutions</li>
-            <li>💡 Innovative and creative approach to problem-solving</li>
-            <li>🔒 Cybersecurity-focused design and implementation</li>
-            <li>📈 Data-driven decision-making to maximize efficiency</li>
-            <li>🤝 Client-first approach with personalized support</li>
-            <li>🌍 Commitment to sustainable and ethical technology</li>
-            <li>⏳ Fast turnaround times without compromising quality</li>
-            <li>🎯 Precision engineering for high-performance applications</li>
-        </ul>
-
-        <p>
-            We are eager to collaborate with businesses looking for high-quality software development, IT consulting,
-            and design expertise.
-            Whether you need a custom-built application, cloud migration, or advanced AI solutions, we have you covered.
-        </p>
+        <h2>Our Services</h2>
+        <div class="services">
+            <p>We deliver top-tier software solutions, IT consulting, and innovative designs tailored to your needs.</p>
+            <ul>
+                <li>🚀 Scalable, high-performance software solutions</li>
+                <li>💡 Creative and innovative problem-solving</li>
+                <li>🔒 Cybersecurity-focused architecture</li>
+                <li>📊 Data-driven insights for optimized efficiency</li>
+                <li>🤝 Personalized client-first approach</li>
+                <li>🌍 Sustainable and ethical tech initiatives</li>
+                <li>⏳ Fast and reliable project turnaround</li>
+                <li>🎯 High-precision engineering</li>
+            </ul>
+        </div>
 
         <div class="contact-info">
             📍 1234 Innovation Drive, Tech City, TX 75001 <br>
@@ -148,14 +148,14 @@
         </nav>
         <p>© 2025 Panajkar Technologies | Innovating the Future</p>
 
-        <a href="https://validator.w3.org/check?uri=referer">
-            <img style="border:0;width:88px;height:31px"
-                src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
-        </a>
-        <a href="https://jigsaw.w3.org/css-validator/check/referer">
-            <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss"
-                alt="Valid CSS!">
-        </a>
+        <div class="validate-icons">
+            <a href="https://validator.w3.org/check?uri=referer">
+                <img src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
+            </a>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+            </a>
+        </div>
     </footer>
 </body>
 
