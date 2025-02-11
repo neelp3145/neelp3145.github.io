@@ -47,3 +47,15 @@ figure {
     text-align: center;
     font-style: italic;
 }
+
+img {
+    border: 0;
+    width: 88px;
+    height: 31px;
+}
+
+a {
+    border: 0;
+    width: 88px;
+    height: 31px;
+}
