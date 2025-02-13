@@ -20,20 +20,20 @@ body {
 .nav>a {
     padding: 20px 0;
     margin-bottom: 10px;
-    color: blue;
+    color: lightblue;
     text-decoration: none;
 }
 
 .nav>a:hover {
-    color: blue;
+    color: lightblue;
 }
 
 .nav>a:visited {
-    color: blue;
+    color: lightblue;
 }
 
 .nav>a:visited:after {
-    color: blue;
+    color: lightblue;
 }
 
 figure {
