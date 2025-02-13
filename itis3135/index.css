@@ -36,6 +36,25 @@ body {
     color: blue;
 }
 
+.nav-links>a\p {
+    padding: 20px 0;
+    margin-bottom: 10px;
+    color: blue;
+    text-decoration: none;
+}
+
+.nav-links>p:hover {
+    color: blue;
+}
+
+.nav-links>p:visited {
+    color: blue;
+}
+
+.nav-links>p:visited:after {
+    color: blue;
+}
+
 figure {
     text-align: center;
     font-style: italic;
