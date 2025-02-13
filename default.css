@@ -17,6 +17,10 @@ body {
     font-size: medium;
 }
 
+.nav>a {
+    margin-top: -4px;
+}
+
 .nav-links {
     padding: 20px 0;
     margin-bottom: 10px;
