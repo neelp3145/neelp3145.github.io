@@ -17,25 +17,24 @@ body {
     font-size: medium;
 }
 
-.nav-links>a {
+a {
     padding: 20px 0;
     margin-bottom: 10px;
     color: blue;
     text-decoration: none;
 }
 
-.nav-links>a:hover {
+a:hover {
     color: blue;
 }
 
-.nav-links>a:visited {
+a:visited {
     color: blue;
 }
 
-.nav-links>a:visited:after {
+a:visited:after {
     color: blue;
 }
-
 
 figure {
     text-align: center;
