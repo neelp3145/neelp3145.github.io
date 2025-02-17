@@ -6,9 +6,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="default.css">
-	<script src="scripts/main.js" defer></script>
 	<title>Personal Webpage | UNC Charlotte</title>
-	<style>
+	<style type="text/css">
 		body {
 			background-color: cornsilk;
 			color: #333333;
@@ -52,7 +51,6 @@
 	<div id="page-wrapper">
 		<div id="header-wrapper">
 			<header>
-				<h1>ITIS 3135 - Neel Panajkar</h1>
 				<div id="header-container">
 					<div id="logo-wrapper">
 						<a href="http://www.uncc.edu">
@@ -64,11 +62,11 @@
 				</div> <!-- /#header-container -->
 			</header>
 		</div> <!-- /#header-wrapper -->
-		<main>
-			<div id="content-wrapper">
-				<p class="tagline"><a href="itis3135/index.html">Click here to go to my ITIS3135 Site</a></p>
-			</div>
-		</main>
+		<div id="content-wrapper">
+			<p> Your personal webpage has been created.
+				<a href="itis3135/index.html">Click to go to my ITIS3135 Site</a>
+			</p>
+		</div> <!-- /#content-wrapper -->
 	</div> <!-- /#page-wrapper -->
 </body>
 <footer class="nav-links">
@@ -87,6 +85,11 @@
 	<a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
 		<img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
 	</a>
+
+	<script>
+		document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+		document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+	</script>
 
 </footer>
 
