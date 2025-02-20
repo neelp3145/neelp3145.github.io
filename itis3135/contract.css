@@ -85,8 +85,13 @@ footer nav a:hover {
     color: #e74c3c;
 }
 
-footer p {
+footer a {
     font-size: 1rem;
     margin-bottom: 1rem;
     color: whitesmoke;
+    text-align: center;
+}
+
+footer a:hover {
+    color: #e74c3c;
 }
