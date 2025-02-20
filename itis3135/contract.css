@@ -88,22 +88,5 @@ footer nav a:hover {
 footer p {
     font-size: 1rem;
     margin-bottom: 1rem;
-}
-
-footer #validation-link-html,
-footer #validation-link-css {
-    margin-top: 1rem;
-}
-
-footer img {
-    width: 150px;
-    margin-top: 1rem;
-}
-
-footer a img {
-    transition: transform 0.3s ease;
-}
-
-footer a img:hover {
-    transform: scale(1.1);
+    color: whitesmoke;
 }
