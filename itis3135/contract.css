@@ -9,20 +9,19 @@ body {
     margin: 0;
 }
 
-h1,
-h2 {
-    color: #2c3e50;
-    margin-bottom: 1rem;
-}
-
 h1 {
     font-size: 2rem;
     text-align: center;
+    color: white;
+    margin-bottom: 1rem;
 }
 
 h2 {
     font-size: 1.5rem;
     color: #34495e;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 p {
@@ -39,7 +38,7 @@ header {
     text-align: center;
 }
 
-header h1 {
+header {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
 }
@@ -71,6 +70,7 @@ footer {
 
 footer nav {
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 footer nav a {
@@ -94,4 +94,10 @@ footer a {
 
 footer a:hover {
     color: #e74c3c;
+}
+
+footer p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
 }
