@@ -36,7 +36,7 @@ img {
 }
 
 .bad-background {
-    background-color: yellow;
+    background-color: linear-gradient(green, purple);
     padding: 10px;
 }
 
