@@ -39,12 +39,6 @@ ul {
     text-decoration: underline;
 }
 
-marquee {
-    font-size: 40px;
-    font-weight: bold;
-    color: red;
-}
-
 .blinking {
     animation: blink 0.7s infinite alternate;
 }
