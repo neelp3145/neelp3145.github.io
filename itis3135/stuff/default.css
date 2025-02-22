@@ -1,0 +1,67 @@
+h1 {
+    font-family: Papyrus, fantasy;
+    font-size: 36px;
+}
+
+h2 {
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 30px;
+}
+
+h3 {
+    font-family: 'Times New Roman', serif;
+    font-size: 28px;
+}
+
+body {
+    background-color: white;
+    color: black;
+    margin: 0px;
+    padding: 20px;
+}
+
+img {
+    width: 40px;
+    height: 193px;
+    border: 5px solid pink;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.huge-text {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.bad-background {
+    background-color: linear-gradient(green, purple);
+    padding: 10px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.bad-border {
+    border-top: 10px dotted red;
+    border-right: 10px solid blue;
+    border-bottom: 10px dashed green;
+    border-left: 10px double orange;
+    padding: 20px;
+    margin: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    text-align: center;
+    list-style-position: inside;
+}
+
+footer {
+    margin-top: 100px;
+}
