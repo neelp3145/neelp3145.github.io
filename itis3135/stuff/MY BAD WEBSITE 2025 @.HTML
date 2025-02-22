@@ -4,38 +4,72 @@
 <head>
     <title>CRAPPY WEBPAGE</title>
     <link rel="stylesheet" href="https://yourwebsite.com/styles/default.css">
+    <style>
+        /* Even worse inline styles */
+        .blinking {
+            animation: blink 0.7s infinite alternate;
+        }
+
+        @keyframes blink {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body style="background-color: white; color: black; font-family: 'Comic Sans MS', cursive; text-align: center;">
 
-    <h2>Subheader First (Bad Ordering)</h2>
-    <h1>Main Header Second (Even Worse)</h1>
+    <h5>What is happening?? (Terrible header order)</h5>
+    <h3>Main Header is NOT Here Yet</h3>
+    <h1>Now it is! (Way Too Late)</h1>
 
-    <nav>
+    <nav style="background-color: yellow; border: 5px solid pink;">
         <ul>
             <li><a href="MY%20BAD%20WEBSITE%202025%20@.HTML">Terrible Page</a></li>
-            <li><a href="MY%20BAD%20WEBSITE%202025%20@.HTML">The same Terrible Page</a></li>
-            <li><a href="missingpage.html">A Broken Link</a></li>
+            <li><a href="MY%20BAD%20WEBSITE%202025%20@.HTML">Click This Again</a></li>
+            <li><a href="404error.html">Dead Link</a></li>
+            <li><a href="#">Mysterious Link to Nowhere</a></li>
         </ul>
     </nav>
 
-    <p class="center-text">This is centered text. It's totally unnecessary but here we are.</p>
+    <marquee behavior="scroll" direction="left" style="color: red; font-size: 40px; font-weight: bold;">
+        🛑 Welcome to the WORST Webpage EVER! 🛑
+    </marquee>
+
+    <p class="center-text" style="color: white; background-color: lime;">This is centered text with horrible contrast.
+    </p>
 
     <ul class="center-text">
         <li>Bad practice 1</li>
-        <li>Bad practice 2</li>
+        <li style="font-size: 50px;">Bad practice 2 (WHY IS THIS SO BIG??)</li>
     </ul>
 
     <h3>This is not an image</h3>
-    <img src="/itis3135/stuff/reallybigimagefromgooglethatisuglyandpointless" width="400" height="400" alt="Bad Image">
+    <img src="/itis3135/stuff/reallybigimagefromgooglethatisuglyandpointless" width="400" height="200" alt="Bad Image">
 
-    <p class="huge-text">This text is WAY too big.</p>
-    <p class="bad-background">This text has a random background color.</p>
-    <p class="underline">This text is underlined but not a link. Super confusing.</p>
+    <p class="huge-text" style="font-size: 80px;">THIS TEXT IS WAY TOO BIG.</p>
+    <p class="bad-background" style="background-color: purple; color: yellow; padding: 20px;">
+        This text has a completely unreadable color combination.
+    </p>
+    <p class="underline" style="text-decoration: underline; font-size: 30px;">
+        This text is underlined but not a link. Very misleading.
+    </p>
 
-    <div class="bad-border">This box has the worst border ever.</div>
+    <div class="bad-border" style="border: 20px dashed cyan; padding: 30px; margin: 5px;">
+        This box has the worst border ever and is unnecessary.
+    </div>
 
-    <br><br><br><br><br><br><br><br><br><br>
+    <p class="blinking" style="font-size: 50px; color: red; font-weight: bold;">
+        WARNING: BLINKING TEXT IS THE WORST.
+    </p>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 </body>
 
 </html>
