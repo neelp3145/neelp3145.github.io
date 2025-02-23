@@ -37,7 +37,7 @@ ul {
 
 .underline {
     text-decoration: underline;
-    background-color: linear-gradient(green, purple);
+    background-image: linear-gradient(green, purple);
 }
 
 .blinking {
