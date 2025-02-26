@@ -37,7 +37,15 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #00bcd4;
+    color: #1abc9c;
+}
+
+nav a {
+    color: white;
+}
+
+nav a:hover {
+    color: #1abc9c;
 }
 
 main {
@@ -79,4 +87,12 @@ footer {
     text-align: center;
     padding: 10px;
     margin-top: 20px;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: #1abc9c;
 }

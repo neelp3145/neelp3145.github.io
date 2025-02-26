@@ -8,18 +8,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
+<style>
+    header h1 {
+        padding-bottom: 10px;
+    }
+</style>
+
 <body>
 
     <header>
         <h1>Web Design Guidelines - Website Evaluations</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="website_evaluations.html">Website Evaluations</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div data-include="header.html"></div>
     </header>
 
     <main>
@@ -56,10 +55,11 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Neel Panajkar | Web Design Guidelines</p>
-        <p><a href="https://validator.w3.org/">HTML Validation</a> | <a href="https://jigsaw.w3.org/css-validator/">CSS
-                Validation</a></p>
+        <div data-include="components/footer.html"></div>
     </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/HTMLinclude.min.js"></script>
 
 </body>
 
