@@ -78,6 +78,7 @@ img {
     height: auto;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.5);
+    align-items: center;
 }
 
 footer {
@@ -91,4 +92,11 @@ footer {
 footer>img {
     width: auto;
     height: auto;
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
