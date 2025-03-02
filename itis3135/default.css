@@ -6,6 +6,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -38,12 +40,15 @@ nav a:hover {
 }
 
 main {
+    max-width: 1200px;
     width: 80%;
     background: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
     text-align: center;
+    padding: 20px;
+    margin: 0 auto;
 }
 
 footer {
@@ -66,9 +71,47 @@ footer a:hover {
     color: #1abc9c;
 }
 
-@media (max-width: 768px) {
+#colorbox {
+    height: 200px;
+    width: 200px;
+    background: blue;
+    margin: 50px auto;
+}
+
+/* Media Queries for Different Devices */
+
+/* Laptops / Small Screens */
+@media screen and (min-width: 981px) and (max-width: 1400px) {
+    #colorbox {
+        background-color: yellow;
+    }
+}
+
+/* Tablets */
+@media screen and (min-width: 601px) and (max-width: 980px) {
+    #colorbox {
+        background-color: orange;
+    }
+
     main {
         width: 95%;
+    }
+
+    nav a {
+        display: block;
+        padding: 10px;
+    }
+}
+
+/* Mobile Devices */
+@media screen and (min-width: 370px) and (max-width: 600px) {
+    #colorbox {
+        background-color: red;
+    }
+
+    main {
+        width: 100%;
+        padding: 10px;
     }
 
     nav a {
