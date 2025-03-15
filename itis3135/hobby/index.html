@@ -79,29 +79,93 @@
 <body>
     <header>
         <h1>Welcome to Neel's Soccer Fan Page</h1>
+        <nav>
+            <button onclick="showSection('home')">Home</button> ||
+            <button onclick="showSection('about')">About Me</button> ||
+            <button onclick="showSection('best-times')">Best Times</button> ||
+            <button onclick="showSection('locations')">Locations</button> ||
+            <button onclick="showSection('how')">How</button> ||
+            <button onclick="showSection('why')">Why</button> ||
+        </nav>
     </header>
 
     <main>
-        <nav>
-            <button>Home</button> ||
-            <button>About Me</button> ||
-            <button>Best Times</button> ||
-            <button>Locations</button> ||
-            <button>How</button> ||
-            <button>Why</button> ||
-        </nav>
-        <section></section>
-        <section></section>
-        <section></section>
-        <section></section>
-        <section></section>
-        <section></section>
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to my soccer fan page! Here, I share my passion for soccer, including tips, favorite moments, and
+                more.</p>
+            <figure>
+                <img src="images/Lionel_Messi.jpg" alt="A picture of Lionel Messi">
+                <figcaption>A picture of Lionel Messi</figcaption>
+            </figure>
+            <p><i>Prompt used to generate the image: "A soccer ball on a grassy field."</i></p>
+        </section>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I have been a soccer fan for over 10 years. I love playing, watching, and analyzing the game.</p>
+            <figure>
+                <img src="images/about.jpg" alt="About Me">
+                <figcaption>About Me</figcaption>
+            </figure>
+            <p><i>Prompt used to generate the image: "A person holding a soccer ball in a stadium."</i></p>
+        </section>
+        <section id="best-times">
+            <h2>Best Times</h2>
+            <p>The best times to watch soccer are during major tournaments like the World Cup and the UEFA Champions
+                League.</p>
+            <figure>
+                <img src="images/best-times.jpg" alt="Best Times">
+                <figcaption>Best Times</figcaption>
+            </figure>
+            <p><i>Prompt used to generate the image: "A soccer stadium during a night match."</i></p>
+        </section>
+        <section id="locations">
+            <h2>Locations</h2>
+            <p>Some of the best locations to watch soccer include iconic stadiums like Camp Nou, Old Trafford, and
+                Maracanã.</p>
+            <figure>
+                <img src="images/locations.jpg" alt="Locations">
+                <figcaption>Locations</figcaption>
+            </figure>
+            <p><i>Prompt used to generate the image: "Aerial view of a famous soccer stadium."</i></p>
+        </section>
+        <section id="how">
+            <h2>How</h2>
+            <p>To get started with soccer, you need a ball, a pair of cleats, and a passion for the game. Practice
+                regularly and watch professional matches to improve.</p>
+            <figure>
+                <img src="images/how.jpg" alt="How">
+                <figcaption>How</figcaption>
+            </figure>
+            <p><i>Prompt used to generate the image: "A beginner practicing soccer in a park."</i></p>
+        </section>
+        <section id="why">
+            <h2>Why</h2>
+            <p>Soccer is more than just a game; it's a way to bring people together, stay fit, and enjoy the thrill of
+                competition.</p>
+            <figure>
+                <img src="images/why.jpg" alt="Why">
+                <figcaption>Why</figcaption>
+            </figure>
+            <p><i>Prompt used to generate the image: "A group of friends playing soccer in a park."</i></p>
+        </section>
     </main>
     <footer>
+        <p>Designed by <a href="https://yourdesignfirm.com">Your Design Firm</a></p>
+        <a href="https://validator.w3.org/check?uri=referer">HTML Validation</a> •
+        <a href="https://jigsaw.w3.org/css-validator/check/referer">CSS Validation</a> •
+        <a href="https://wave.webaim.org/report#/https://webpages.charlotte.edu/UNCCID/itis3135/hobby/">Accessibility
+            Validation</a>
     </footer>
-    <script src="../scripts/main.js"></script>
-    <script src="../scripts/HTMLinclude.min.js"></script>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
 
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
 </body>
 
 </html>
