@@ -53,6 +53,18 @@
             width: 80%;
             border-radius: 10px;
             box-shadow: 2px 2px 10px gray;
+            max-height: auto;
+        }
+
+        #about {
+            display: none;
+            padding: 20px;
+            background: white;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px gray;
+            max-height: auto;
         }
 
         section:first-of-type {
@@ -75,13 +87,30 @@
             padding: 10px;
         }
 
-        .resize {
+        .resizeN {
             width: 80%;
             height: 80%;
         }
 
         section {
             max-width: 70%;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .image-container figure {
+            margin: 0;
+            text-align: center;
+        }
+
+        .resize {
+            width: 100%;
+            max-width: 300px;
+            height: 100%;
         }
     </style>
 </head>
@@ -110,43 +139,43 @@
                 discipline the sport brings. This website is dedicated to all things football. Join me in building a
                 deeper love for the beautiful game!</p>
             <figure>
-                <img class="resize" src="images/Lionel_Messi.jpg" alt="A picture of Lionel Messi">
+                <img class="resizeN" src="images/Lionel_Messi.jpg" alt="A picture of Lionel Messi">
                 <figcaption>A picture of (arguably) the greatest footballer of all time - Lionel Messi</figcaption>
             </figure>
         </section>
         <section id="about">
             <h2>About the Beautiful Game</h2>
             <p>
-                The beautiful game as we all know it lays its orgins back in the early 19th century. Although there were
-                many different versions of the game spread among various different countries, the orgins of the
+                The beautiful game as we all know it lays its origins back in the early 19th century. Although there
+                were
+                many different versions of the game spread among various different countries, the origins of the
                 game, however, come from England.
             </p>
             <figure>
-                <img class="resize" src="images/Football.jpg" alt="A football match">
-                <figcaption>Two teams playng Football match</figcaption>
+                <img class="resizeN" src="images/Football.jpg" alt="A football match">
+                <figcaption>Two teams playing a Football match</figcaption>
             </figure>
             <p>
-                Fast forward a bit to mid 19th century where we find that football branched itself into 2 main
-                categories.
-                <b>Futsal</b> and <b>Beach</b> football
+                Fast forward a bit to the mid-19th century where we find that football branched itself into two main
+                categories: <b>Futsal</b> and <b>Beach</b> football.
             </p>
             <p>
                 Futsal is an indoor version of soccer and can be played on indoor turf or a regular high-school gym
                 floor.
             </p>
-            <figure>
-                <img class="resize" src="images/Futsal.jpg" alt="A futsal match">
-                <figcaption>Two teams playng a Futsal match</figcaption>
-            </figure>
-            <p>
-                Beach Football is just like regular football. However, instead of grass or tuf, the match that is played
-                on sand
-            </p>
-            <figure>
-                <img class="resize" src="images/Beach.jpg" alt="A beach football match">
-                <figcaption>Two teams playng a Beach Football match</figcaption>
-            </figure>
+
+            <div class="image-container">
+                <figure>
+                    <img class="resize" src="images/Futsal.jpg" alt="A futsal match">
+                    <figcaption>Two teams playing a Futsal match</figcaption>
+                </figure>
+                <figure>
+                    <img class="resize" src="images/Beach.jpg" alt="A beach football match">
+                    <figcaption>Two teams playing a Beach Football match</figcaption>
+                </figure>
+            </div>
         </section>
+
         <section id="best-times">
             <h2>Best Times</h2>
             <p>
@@ -156,7 +185,7 @@
                 park. Though the best time to play, where to play, and whom to play with really depends on you
             </p>
             <figure>
-                <img class="resize" src="images/football_pitch.png" alt="Best Times">
+                <img class="resizeN" src="images/football_pitch.png" alt="Best Times">
                 <figcaption>Best Times</figcaption>
             </figure>
             <p><i>Prompt used to generate the image: "create a football (soccer) pitch"</i></p>
