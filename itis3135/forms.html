@@ -4,153 +4,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITIS 3135 - HTML Forms</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-        header,
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        main {
-            width: 50%;
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        fieldset {
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        legend {
-            font-weight: bold;
-        }
-
-        label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        input,
-        select {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-buttons {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button[type="reset"] {
-            background: #888;
-            color: white;
-        }
-
-        button[type="submit"] {
-            background: #007bff;
-            color: white;
-        }
-
-        button:hover {
-            opacity: 0.8;
-        }
-    </style>
+    <title>TechGadget Survey | John Doe's ITIS 3135 Course</title>
+    <link rel="stylesheet" href="styles/default.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8ef1b67a3f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <header>
-        <div data-include="components/header.html"></div>
+        <h1>John Doe's Incredible Tech Gadgets | ITIS 3135</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="contract.html">Contract</a></li>
+                <li><a href="forms.html">Survey</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
-        <h2>Customer Information Form</h2>
-        <form action="#" method="post">
+        <h2>TechGadget Customer Survey</h2>
+        <p class="tagline">Help us improve our products and services!</p>
+
+        <form id="techSurvey" action="#" method="post" novalidate>
             <fieldset>
-                <legend>Personal Information</legend>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                <legend><i class="fas fa-user"></i> Personal Information</legend>
 
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required placeholder="123-456-7890">
+                <div class="form-group">
+                    <label for="fullName">Full Name:*</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="John Smith" size="30"
+                        minlength="2" maxlength="50" pattern="[A-Za-z ]+" title="Letters and spaces only">
+                    <span class="input-icon"><i class="fas fa-signature"></i></span>
+                </div>
 
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required placeholder="example@email.com">
+                <div class="form-group">
+                    <label for="email">Email:*</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com" size="30">
+                    <span class="input-icon"><i class="fas fa-envelope"></i></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="123-456-7890" size="15"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Format: 123-456-7890">
+                    <span class="input-icon"><i class="fas fa-phone"></i></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthdate">Birth Date:</label>
+                    <input type="date" id="birthdate" name="birthdate" min="1920-01-01" max="2020-12-31">
+                </div>
             </fieldset>
 
             <fieldset>
-                <legend>Preferences</legend>
-                <p>Preferred Contact Method:</p>
-                <input type="radio" id="contact-email" name="contact" value="email" required>
-                <label for="contact-email">Email</label>
+                <legend><i class="fas fa-laptop"></i> Product Preferences</legend>
 
-                <input type="radio" id="contact-phone" name="contact" value="phone">
-                <label for="contact-phone">Phone</label>
+                <div class="form-group">
+                    <label>Which of our products do you own? (Check all that apply):</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="product1" name="products" value="smartwatch">
+                        <label for="product1">SmartWatch Pro</label>
 
-                <p>Services Interested In:</p>
-                <input type="checkbox" id="web-design" name="services" value="web-design">
-                <label for="web-design">Web Design</label>
+                        <input type="checkbox" id="product2" name="products" value="earbuds">
+                        <label for="product2">Wireless Earbuds X</label>
 
-                <input type="checkbox" id="seo" name="services" value="seo">
-                <label for="seo">SEO Optimization</label>
+                        <input type="checkbox" id="product3" name="products" value="tablet">
+                        <label for="product3">TechTablet 10</label>
 
-                <input type="checkbox" id="marketing" name="services" value="marketing">
-                <label for="marketing">Digital Marketing</label>
+                        <input type="checkbox" id="product4" name="products" value="phone">
+                        <label for="product4">GadgetPhone Max</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>How satisfied are you with our products?</label>
+                    <div class="radio-group">
+                        <input type="radio" id="satisfaction1" name="satisfaction" value="5" required>
+                        <label for="satisfaction1">Very Satisfied</label>
+
+                        <input type="radio" id="satisfaction2" name="satisfaction" value="4">
+                        <label for="satisfaction2">Satisfied</label>
+
+                        <input type="radio" id="satisfaction3" name="satisfaction" value="3">
+                        <label for="satisfaction3">Neutral</label>
+
+                        <input type="radio" id="satisfaction4" name="satisfaction" value="2">
+                        <label for="satisfaction4">Dissatisfied</label>
+
+                        <input type="radio" id="satisfaction5" name="satisfaction" value="1">
+                        <label for="satisfaction5">Very Dissatisfied</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="purchaseFrequency">How often do you purchase our products?</label>
+                    <select id="purchaseFrequency" name="purchaseFrequency">
+                        <option value="" selected disabled>Select an option</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="quarterly">Quarterly</option>
+                        <option value="yearly">Yearly</option>
+                        <option value="firstTime">This is my first purchase</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="features">Which features would you like to see in future products?</label>
+                    <textarea id="features" name="features" rows="4"
+                        placeholder="Please share your ideas..."></textarea>
+                </div>
             </fieldset>
 
             <fieldset>
-                <legend>Additional Information</legend>
-                <label for="budget">Estimated Budget:</label>
-                <select id="budget" name="budget" required>
-                    <option value="">Select an option</option>
-                    <option value="low">Less than $500</option>
-                    <option value="medium">$500 - $2000</option>
-                    <option value="high">More than $2000</option>
-                </select>
+                <legend><i class="fas fa-chart-line"></i> Additional Information</legend>
+
+                <div class="form-group">
+                    <label for="budget">What's your typical budget for tech gadgets?</label>
+                    <input type="range" id="budget" name="budget" min="50" max="1000" step="50" value="300">
+                    <output for="budget" id="budgetValue">$300</output>
+                </div>
+
+                <div class="form-group">
+                    <label for="referral">How did you hear about us?</label>
+                    <select id="referral" name="referral" multiple size="3">
+                        <option value="social">Social Media</option>
+                        <option value="friend">Friend/Family</option>
+                        <option value="ad">Advertisement</option>
+                        <option value="search">Search Engine</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="website">Your Website (if applicable):</label>
+                    <input type="url" id="website" name="website" placeholder="https://example.com">
+                </div>
             </fieldset>
 
-            <div class="form-buttons">
-                <button type="reset">Reset</button>
-                <button type="submit">Submit</button>
+            <div class="form-actions">
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Submit Survey
+                </button>
+                <button type="reset" class="reset-btn">
+                    <i class="fas fa-undo"></i> Reset Form
+                </button>
             </div>
         </form>
+
+        <div id="formFeedback" class="hidden">
+            <h3>Thank you for your feedback!</h3>
+            <p>We appreciate you taking the time to complete our survey.</p>
+        </div>
     </main>
     <footer>
-        <div data-include="components/footer.html"></div>
+        <nav>
+            <a href="https://webpages.charlotte.edu/jdoe/">Charlotte.edu</a> |
+            <a href="https://github.com/jdoeuncc">Github</a> |
+            <a href="https://jdoeuncc.github.io/">Github.io</a> |
+            <a href="https://www.freecodecamp.org/jdoe">freeCodeCamp</a> |
+            <a href="https://www.codecademy.com/profiles/jdoe">Codecademy</a> |
+            <a href="https://www.linkedin.com/in/jdoe/">LinkedIn</a>
+        </nav>
+        <p>Page built by <a href="johndoe.dev">John Doe Designs</a> &copy; 2023</p>
+        <div>
+            <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
+                <img src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML.">
+            </a>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation_link_css">
+                <img src="images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS.">
+            </a>
+        </div>
+        <script>
+            document.getElementById("budget").addEventListener("input", function () {
+                document.getElementById("budgetValue").value = "$" + this.value;
+            });
+
+            document.getElementById("techSurvey").addEventListener("submit", function (e) {
+                e.preventDefault();
+                this.classList.add("hidden");
+                document.getElementById("formFeedback").classList.remove("hidden");
+            });
+        </script>
     </footer>
-    <script src="scripts/main.js"></script>
-    <script src="scripts/HTMLinclude.min.js"></script>
 </body>
 
 </html>
