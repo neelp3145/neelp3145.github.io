@@ -14,15 +14,7 @@
 
 <body>
     <header>
-        <h1>John Doe's Incredible Tech Gadgets | ITIS 3135</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="introduction.html">Introduction</a></li>
-                <li><a href="contract.html">Contract</a></li>
-                <li><a href="forms.html">Survey</a></li>
-            </ul>
-        </nav>
+        <div data-include="components/header.html"></div>
     </header>
     <main>
         <h2>TechGadget Customer Survey</h2>
@@ -159,35 +151,10 @@
         </div>
     </main>
     <footer>
-        <nav>
-            <a href="https://webpages.charlotte.edu/jdoe/">Charlotte.edu</a> |
-            <a href="https://github.com/jdoeuncc">Github</a> |
-            <a href="https://jdoeuncc.github.io/">Github.io</a> |
-            <a href="https://www.freecodecamp.org/jdoe">freeCodeCamp</a> |
-            <a href="https://www.codecademy.com/profiles/jdoe">Codecademy</a> |
-            <a href="https://www.linkedin.com/in/jdoe/">LinkedIn</a>
-        </nav>
-        <p>Page built by <a href="johndoe.dev">John Doe Designs</a> &copy; 2023</p>
-        <div>
-            <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
-                <img src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML.">
-            </a>
-            <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation_link_css">
-                <img src="images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS.">
-            </a>
-        </div>
-        <script>
-            document.getElementById("budget").addEventListener("input", function () {
-                document.getElementById("budgetValue").value = "$" + this.value;
-            });
-
-            document.getElementById("techSurvey").addEventListener("submit", function (e) {
-                e.preventDefault();
-                this.classList.add("hidden");
-                document.getElementById("formFeedback").classList.remove("hidden");
-            });
-        </script>
+        <div data-include="components/footer.html"></div>
     </footer>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/HTMLinclude.min.js"></script>
 </body>
 
 </html>
