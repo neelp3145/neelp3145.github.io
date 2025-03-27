@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITIS 3135 - HTML Forms</title>
+    <link rel="stylesheet" href="styles/default.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header,
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        main {
+            width: 50%;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="reset"] {
+            background: #888;
+            color: white;
+        }
+
+        button[type="submit"] {
+            background: #007bff;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>ITIS 3135 - Neel Panajkar</h1>
+        <p>Your go-to destination for tech solutions</p>
+    </header>
+    <main>
+        <h2>Customer Information Form</h2>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="123-456-7890">
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required placeholder="example@email.com">
+            </fieldset>
+
+            <fieldset>
+                <legend>Preferences</legend>
+                <p>Preferred Contact Method:</p>
+                <input type="radio" id="contact-email" name="contact" value="email" required>
+                <label for="contact-email">Email</label>
+
+                <input type="radio" id="contact-phone" name="contact" value="phone">
+                <label for="contact-phone">Phone</label>
+
+                <p>Services Interested In:</p>
+                <input type="checkbox" id="web-design" name="services" value="web-design">
+                <label for="web-design">Web Design</label>
+
+                <input type="checkbox" id="seo" name="services" value="seo">
+                <label for="seo">SEO Optimization</label>
+
+                <input type="checkbox" id="marketing" name="services" value="marketing">
+                <label for="marketing">Digital Marketing</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Additional Information</legend>
+                <label for="budget">Estimated Budget:</label>
+                <select id="budget" name="budget" required>
+                    <option value="">Select an option</option>
+                    <option value="low">Less than $500</option>
+                    <option value="medium">$500 - $2000</option>
+                    <option value="high">More than $2000</option>
+                </select>
+            </fieldset>
+
+            <div class="form-buttons">
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 Neel Panajkar. Valid HTML & CSS.</p>
+    </footer>
+</body>
+
+</html>
