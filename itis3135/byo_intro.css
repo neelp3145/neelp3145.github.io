@@ -23,8 +23,6 @@
 .form-group input[type="text"],
 .form-group textarea {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
     border-radius: 4px;
 }
 
