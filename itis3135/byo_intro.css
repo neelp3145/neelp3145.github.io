@@ -1,0 +1,113 @@
+#intro-form fieldset {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#intro-form legend {
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.form-buttons input {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#courses-container {
+    margin-bottom: 10px;
+}
+
+.course-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.course-group input {
+    flex-grow: 1;
+}
+
+#add-course {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-course {
+    padding: 5px 10px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-course:hover {
+    background-color: #ff5252;
+}
+
+#result-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+#result-container ul {
+    margin-top: 15px;
+}
+
+#result-container ul ul {
+    margin-left: 20px;
+}
+
+.reset-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.reset-link:hover {
+    text-decoration: underline;
+}
