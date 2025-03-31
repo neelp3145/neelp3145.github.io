@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Add course button functionality
     document.getElementById('add-course').addEventListener('click', addCourse);
 
     document.getElementById('intro-form').addEventListener('submit', function (e) {
@@ -8,16 +9,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    const resetPageBtn = document.getElementById('reset-page');
-    if (resetPageBtn) {
-        resetPageBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            resetPage();
-        });
-    }
+    document.getElementById('reset-page')?.addEventListener('click', function (e) {
+        e.preventDefault();
+        resetPage();
+    });
 
     const initialDeleteBtn = document.querySelector('.delete-course');
-    if (document.querySelectorAll('.course-group').length === 1 && initialDeleteBtn) {
+    if (document.querySelectorAll('.course-group').length === 1) {
         initialDeleteBtn.style.display = 'none';
     }
 });
@@ -56,10 +54,7 @@ function deleteCourse(button) {
     courseGroup.remove();
 
     if (document.querySelectorAll('.course-group').length === 1) {
-        const remainingDeleteBtn = document.querySelector('.delete-course');
-        if (remainingDeleteBtn) {
-            remainingDeleteBtn.style.display = 'none';
-        }
+        document.querySelector('.delete-course').style.display = 'none';
     }
 }
 
@@ -146,13 +141,10 @@ function generateIntroPage() {
         <a href="#" id="reset-page" class="reset-link">Reset and Create Another Intro</a>
     `;
 
-    const newResetBtn = document.getElementById('reset-page');
-    if (newResetBtn) {
-        newResetBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            resetPage();
-        });
-    }
+    document.getElementById('reset-page').addEventListener('click', function (e) {
+        e.preventDefault();
+        resetPage();
+    });
 }
 
 function resetPage() {
