@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYO Intro | Your Name | ITIS 3135</title>
+    <link rel="stylesheet" href="styles/default.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts/headerfooter.js"></script>
+    <script src="scripts/byo_intro.js" defer></script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <main>
+        <h2>BYO Introduction Page</h2>
+
+        <div id="form-container">
+            <h3>Time to BYO Intro page, please fill out the form below so we can create your own page.</h3>
+
+            <form id="intro-form">
+                <fieldset>
+                    <legend>Basic Information</legend>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required value="Your Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mascot">Mascot:</label>
+                        <input type="text" id="mascot" name="mascot" required value="Your Mascot">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Image:</label>
+                        <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image-caption">Image Caption:</label>
+                        <input type="text" id="image-caption" name="image-caption" required value="Your Image Caption">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Background Information</legend>
+                    <div class="form-group">
+                        <label for="personal-bg">Personal Background:</label>
+                        <textarea id="personal-bg" name="personal-bg" required>Your personal background</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="professional-bg">Professional Background:</label>
+                        <textarea id="professional-bg" name="professional-bg"
+                            required>Your professional background</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="academic-bg">Academic Background:</label>
+                        <textarea id="academic-bg" name="academic-bg" required>Your academic background</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="web-bg">Background in Web Development:</label>
+                        <textarea id="web-bg" name="web-bg" required>Your web development background</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="platform">Primary Computer Platform:</label>
+                        <input type="text" id="platform" name="platform" required value="Your primary platform">
+                    </div>
+                </fieldset>
+
+                <fieldset id="courses-fieldset">
+                    <legend>Courses Currently Taking</legend>
+                    <div id="courses-container">
+                        <div class="course-group">
+                            <input type="text" class="course" name="course[]" required
+                                value="ITIS 3135 - Web App Design and Development">
+                            <button type="button" class="delete-course" onclick="deleteCourse(this)">Delete</button>
+                        </div>
+                    </div>
+                    <button type="button" id="add-course">Add Another Course</button>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Other Information</legend>
+                    <div class="form-group">
+                        <label for="funny-thing">Funny thing?</label>
+                        <input type="text" id="funny-thing" name="funny-thing" value="Something funny about you">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="anything-else">Anything else?</label>
+                        <input type="text" id="anything-else" name="anything-else"
+                            value="Anything else you'd like to share">
+                    </div>
+                </fieldset>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="agree" name="agree" required>
+                    <label for="agree">I understand that what is on this page is not password protected and I will not
+                        put anything here that I don't want publicly available.</label>
+                </div>
+
+                <div class="form-buttons">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset Form">
+                </div>
+            </form>
+        </div>
+
+        <div id="result-container" style="display: none;">
+            <!-- This will be populated by JavaScript -->
+            <a href="#" id="reset-page" class="reset-link">Reset and Create Another Intro</a>
+        </div>
+    </main>
+    <div id="footer"></div>
+</body>
+
+</html>
