@@ -32,6 +32,10 @@ fieldset {
     align-items: center;
 }
 
+.fas fa-user {
+    align-items: center;
+}
+
 legend {
     font-size: 1.3rem;
     font-weight: 600;
