@@ -12,17 +12,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Navigation highlighting system
+    // Navigation highlighting system - FIXED VERSION
     function setActiveNavItem() {
-        const navLinks = document.querySelectorAll('.main-nav a');
+        // First, remove 'active' class from all list items
+        const navItems = document.querySelectorAll('.main-nav li');
+        navItems.forEach(item => {
+            item.classList.remove('active');
+        });
+
+        // Get current page filename
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
+        // Find the matching link and add 'active' class to its parent li
+        const navLinks = document.querySelectorAll('.main-nav a');
         navLinks.forEach(link => {
             const linkHref = link.getAttribute('href');
             if (linkHref === currentPage) {
                 link.parentElement.classList.add('active');
-            } else {
-                link.parentElement.classList.remove('active');
             }
         });
     }
@@ -30,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize active nav item on page load
     setActiveNavItem();
 
-    // Update active nav item when clicking links (for single-page feel)
+    // Update active nav item when clicking links
     document.querySelectorAll('.main-nav a').forEach(link => {
         link.addEventListener('click', function () {
             // Remove active class from all nav items
