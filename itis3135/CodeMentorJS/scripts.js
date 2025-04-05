@@ -1,71 +1,113 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Mobile menu toggle
+    // Mobile menu toggle functionality
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mainNav = document.querySelector('.main-nav');
 
     if (mobileMenuToggle && mainNav) {
         mobileMenuToggle.addEventListener('click', function () {
             mainNav.classList.toggle('active');
-            this.querySelector('i').classList.toggle('fa-times');
-            this.querySelector('i').classList.toggle('fa-bars');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-times');
+            icon.classList.toggle('fa-bars');
         });
     }
 
-    // Filter buttons for lessons
+    // Navigation highlighting system
+    function setActiveNavItem() {
+        const navLinks = document.querySelectorAll('.main-nav a');
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+        navLinks.forEach(link => {
+            const linkHref = link.getAttribute('href');
+            if (linkHref === currentPage) {
+                link.parentElement.classList.add('active');
+            } else {
+                link.parentElement.classList.remove('active');
+            }
+        });
+    }
+
+    // Initialize active nav item on page load
+    setActiveNavItem();
+
+    // Update active nav item when clicking links (for single-page feel)
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', function () {
+            // Remove active class from all nav items
+            document.querySelectorAll('.main-nav li').forEach(item => {
+                item.classList.remove('active');
+            });
+            // Add active class to clicked item
+            this.parentElement.classList.add('active');
+        });
+    });
+
+    // Lesson filtering functionality
     const filterButtons = document.querySelectorAll('.filter-btn');
     const lessonCards = document.querySelectorAll('.lesson-card');
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
+    if (filterButtons.length && lessonCards.length) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Update button states
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
 
-            const filterValue = this.getAttribute('data-filter');
+                // Filter lessons
+                const filterValue = this.getAttribute('data-filter');
 
-            lessonCards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-level') === filterValue) {
-                    card.style.display = 'block';
-                    card.classList.add('fade-in');
-                } else {
-                    card.style.display = 'none';
-                    card.classList.remove('fade-in');
-                }
+                lessonCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-level') === filterValue) {
+                        card.style.display = 'block';
+                        card.classList.add('fade-in');
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('fade-in');
+                    }
+                });
             });
         });
-    });
+    }
 
-    // Tab functionality for exercises
+    // Exercise tab functionality
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.exercise-content');
 
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            // Remove active class from all buttons and contents
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
+    if (tabButtons.length && tabContents.length) {
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Update tab buttons
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
 
-            // Add active class to clicked button and corresponding content
-            this.classList.add('active');
-            const tabId = this.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
+                // Show corresponding content
+                const tabId = this.getAttribute('data-tab');
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === tabId) {
+                        content.classList.add('active');
+                    }
+                });
+            });
         });
-    });
+    }
 
-    // Simple code runner for exercises
+    // Code execution functionality for exercises
     const runButtons = document.querySelectorAll('.btn-run');
 
     runButtons.forEach(button => {
         button.addEventListener('click', function () {
-            const codeEditor = this.parentElement.querySelector('.exercise-code');
-            const outputArea = this.closest('.exercise-card').querySelector('.output-content');
+            const exerciseCard = this.closest('.exercise-card');
+            const codeEditor = exerciseCard.querySelector('.exercise-code');
+            const outputArea = exerciseCard.querySelector('.output-content');
 
             if (codeEditor && outputArea) {
                 try {
-                    // This is a simplified version - in a real app you'd use a safer eval method
+                    // Note: In production, use a safer alternative to eval()
                     const result = eval(codeEditor.value);
-                    outputArea.textContent = result !== undefined ? result : 'Code executed successfully (no return value)';
+                    outputArea.textContent = result !== undefined ?
+                        String(result) :
+                        'Code executed successfully (no return value)';
                 } catch (error) {
                     outputArea.textContent = 'Error: ' + error.message;
                 }
@@ -81,35 +123,37 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
 
             // Get form values
-            const name = this.querySelector('#name').value;
-            const email = this.querySelector('#email').value;
-            const message = this.querySelector('#message').value;
+            const name = this.querySelector('#name').value.trim();
+            const email = this.querySelector('#email').value.trim();
+            const message = this.querySelector('#message').value.trim();
 
-            // Simple validation
+            // Validation
             if (!name || !email || !message) {
                 alert('Please fill in all fields');
                 return;
             }
 
-            // In a real app, you would send this data to a server
-            // For this demo, we'll just show a success message
-            alert(`Thanks for your message, ${name}! We'll get back to you soon.`);
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Success message (in a real app, you would send this to a server)
+            alert(`Thank you for your message, ${name}! We'll contact you at ${email} soon.`);
 
             // Reset form
             this.reset();
         });
     }
 
-    // Highlight current page in navigation
-    const currentPage = location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.main-nav a');
-
-    navLinks.forEach(link => {
-        const linkHref = link.getAttribute('href');
-        if (linkHref === currentPage) {
-            link.parentElement.classList.add('active');
-        } else {
-            link.parentElement.classList.remove('active');
-        }
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', function () {
+            if (window.innerWidth <= 768) {
+                mainNav.classList.remove('active');
+                mobileMenuToggle.querySelector('i').classList.remove('fa-times');
+                mobileMenuToggle.querySelector('i').classList.add('fa-bars');
+            }
+        });
     });
 });
