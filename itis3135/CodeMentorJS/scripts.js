@@ -1,24 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Mobile menu toggle
+    // Mobile menu toggle functionality
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mainNav = document.querySelector('.main-nav');
 
     if (mobileMenuToggle && mainNav) {
         mobileMenuToggle.addEventListener('click', function () {
             mainNav.classList.toggle('active');
-            this.querySelector('i').classList.toggle('fa-times');
-            this.querySelector('i').classList.toggle('fa-bars');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-times');
+            icon.classList.toggle('fa-bars');
         });
     }
 
-    // NAVIGATION HIGHLIGHTING - FIXED SOLUTION
-    function updateActiveNav() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    // Navigation highlighting system
+    function setActiveNavItem() {
         const navLinks = document.querySelectorAll('.main-nav a');
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
         navLinks.forEach(link => {
-            const linkPath = link.getAttribute('href');
-            if (linkPath === currentPage) {
+            const linkHref = link.getAttribute('href');
+            if (linkHref === currentPage) {
                 link.parentElement.classList.add('active');
             } else {
                 link.parentElement.classList.remove('active');
@@ -26,40 +27,33 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Initialize active nav on page load
-    updateActiveNav();
+    // Initialize active nav item on page load
+    setActiveNavItem();
 
-    // Close mobile menu when clicking a link (for mobile view)
+    // Update active nav item when clicking links (for single-page feel)
     document.querySelectorAll('.main-nav a').forEach(link => {
         link.addEventListener('click', function () {
-            // Update active nav immediately for visual feedback
+            // Remove active class from all nav items
             document.querySelectorAll('.main-nav li').forEach(item => {
                 item.classList.remove('active');
             });
+            // Add active class to clicked item
             this.parentElement.classList.add('active');
-
-            // Close mobile menu if open
-            if (window.innerWidth <= 768 && mainNav.classList.contains('active')) {
-                mainNav.classList.remove('active');
-                mobileMenuToggle.querySelector('i').classList.remove('fa-times');
-                mobileMenuToggle.querySelector('i').classList.add('fa-bars');
-            }
-
-            // For single-page navigation, update again after potential delay
-            setTimeout(updateActiveNav, 100);
         });
     });
 
-    // Rest of your functionality (filtering, tabs, etc.)
+    // Lesson filtering functionality
     const filterButtons = document.querySelectorAll('.filter-btn');
     const lessonCards = document.querySelectorAll('.lesson-card');
 
     if (filterButtons.length && lessonCards.length) {
         filterButtons.forEach(button => {
             button.addEventListener('click', function () {
+                // Update button states
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
 
+                // Filter lessons
                 const filterValue = this.getAttribute('data-filter');
 
                 lessonCards.forEach(card => {
@@ -75,15 +69,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Exercise tab functionality
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.exercise-content');
 
     if (tabButtons.length && tabContents.length) {
         tabButtons.forEach(button => {
             button.addEventListener('click', function () {
+                // Update tab buttons
                 tabButtons.forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
 
+                // Show corresponding content
                 const tabId = this.getAttribute('data-tab');
                 tabContents.forEach(content => {
                     content.classList.remove('active');
@@ -95,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Code execution functionality for exercises
     const runButtons = document.querySelectorAll('.btn-run');
 
     runButtons.forEach(button => {
@@ -105,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (codeEditor && outputArea) {
                 try {
+                    // Note: In production, use a safer alternative to eval()
                     const result = eval(codeEditor.value);
                     outputArea.textContent = result !== undefined ?
                         String(result) :
@@ -116,16 +115,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Contact form handling (client-side only)
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
+            // Get form values
             const name = this.querySelector('#name').value.trim();
             const email = this.querySelector('#email').value.trim();
             const message = this.querySelector('#message').value.trim();
 
+            // Validation
             if (!name || !email || !message) {
                 alert('Please fill in all fields');
                 return;
@@ -136,8 +138,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            alert(`Thank you for your message, ${name}! We'll contact you soon.`);
+            // Success message (in a real app, you would send this to a server)
+            alert(`Thank you for your message, ${name}! We'll contact you at ${email} soon.`);
+
+            // Reset form
             this.reset();
         });
     }
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', function () {
+            if (window.innerWidth <= 768) {
+                mainNav.classList.remove('active');
+                mobileMenuToggle.querySelector('i').classList.remove('fa-times');
+                mobileMenuToggle.querySelector('i').classList.add('fa-bars');
+            }
+        });
+    });
 });
