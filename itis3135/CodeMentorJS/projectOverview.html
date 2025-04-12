@@ -11,138 +11,166 @@
 </head>
 
 <body>
-
-    <header>
-        <h1>CodeMentor JS</h1>
-        <p>An Interactive JavaScript Learning Hub</p>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="lessons.html">Lessons</a></li>
-                <li><a href="exercises.html">Exercises</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="projectOverview.html">Project Overview</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="CodeMentor JS Logo">
+                <h1>CodeMentor <span>JS</span></h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="lessons.html">Lessons</a></li>
+                    <li><a href="exercises.html">Exercises</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="projectOverview.html">Project Overview</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
 
     <main>
-        <section>
-            <h2>Project Overview</h2>
-            <p><strong>Project Name:</strong> CodeMentor JS</p>
-            <p><strong>Description:</strong> CodeMentor JS is an interactive web application designed to help beginners
-                learn JavaScript fundamentals through structured lessons, interactive examples, and practice exercises.
-                The platform provides a friendly introduction to programming concepts with immediate feedback.</p>
+        <section class="page-header">
+            <div class="container">
+                <h2>Project Overview</h2>
+                <p>A look behind the scenes at CodeMentor JS</p>
+            </div>
         </section>
 
-        <section>
-            <h2>Intended Users</h2>
-            <ul>
-                <li>Beginner programmers (primarily my classmate/client)</li>
-                <li>Students learning JavaScript basics</li>
-                <li>Self-taught coders needing structured materials</li>
-                <li>Anyone interested in web development fundamentals</li>
-            </ul>
-        </section>
+        <section class="about-container">
+            <div class="container">
+                <div class="about-content">
+                    <h2>Project Name</h2>
+                    <p><strong>CodeMentor JS</strong> is an interactive web application designed to help beginners learn
+                        JavaScript fundamentals through structured lessons, interactive examples, and practice
+                        exercises.</p>
 
-        <section>
-            <h2>Website Content Overview</h2>
-            <ul>
-                <li>Interactive JavaScript tutorials</li>
-                <li>Code examples with live editors</li>
-                <li>Practice exercises with solutions</li>
-                <li>Concept explanations with visual aids</li>
-                <li>Progress tracking (client-side only)</li>
-                <li>Resource recommendations</li>
-            </ul>
-        </section>
+                    <h2>Intended Users</h2>
+                    <ul>
+                        <li>Beginner programmers (primarily my classmate/client)</li>
+                        <li>Students learning JavaScript basics</li>
+                        <li>Self-taught coders needing structured materials</li>
+                        <li>Anyone interested in web development fundamentals</li>
+                    </ul>
 
-        <section class="sitemap">
-            <h2>Wireframe Site Map</h2>
-            <pre>
-                A[Home] --> B[Lessons]
-                A       --> C[Exercises]
-                A       --> D[Resources]
-                A       --> E[About]
-                B --> B1[Variables]
-                B --> B2[Functions]
-                B --> B3[Loops]
-                C --> C1[Beginner]
-                C --> C2[Intermediate]
-                D --> D1[References]
-                D --> D2[Tools]
-            </pre>
-        </section>
+                    <h2>Website Content Overview</h2>
+                    <ul>
+                        <li>Interactive JavaScript tutorials</li>
+                        <li>Code examples with live editors</li>
+                        <li>Practice exercises with solutions</li>
+                        <li>Concept explanations with visual aids</li>
+                        <li>Progress tracking (client-side only)</li>
+                        <li>Resource recommendations</li>
+                    </ul>
 
-        <section>
-            <h2>Page Designs</h2>
+                    <h2>Wireframe Site Map</h2>
+                    <pre>
+A[Home] --> B[Lessons]
+A       --> C[Exercises]
+A       --> D[Resources]
+A       --> E[About]
+B --> B1[Variables]
+B --> B2[Functions]
+B --> B3[Loops]
+C --> C1[Beginner]
+C --> C2[Intermediate]
+D --> D1[References]
+D --> D2[Tools]
+                    </pre>
 
-            <h3>1. Home Page</h3>
-            <p><strong>Purpose:</strong> Introduce the platform</p>
-            <p><strong>Content:</strong> Welcome message, featured lessons, quick start guide, recent updates</p>
-            <p><strong>Interactivity:</strong> Interactive code snippet demo, newsletter form</p>
+                    <h2>Page Designs</h2>
 
-            <h3>2. Lessons Page</h3>
-            <p><strong>Purpose:</strong> Provide learning materials</p>
-            <p><strong>Interactivity:</strong> Expandable cards, filter by difficulty</p>
+                    <h3>Home Page</h3>
+                    <p><strong>Purpose:</strong> Introduce the platform</p>
+                    <p><strong>Content:</strong> Welcome message, featured lessons, quick start guide, recent updates
+                    </p>
+                    <p><strong>Interactivity:</strong> Interactive code snippet demo, newsletter form</p>
 
-            <h3>3. Exercises Page</h3>
-            <p><strong>Purpose:</strong> Practice coding</p>
-            <p><strong>Interactivity:</strong> Code editor, run button, syntax checking</p>
+                    <h3>Lessons Page</h3>
+                    <p><strong>Purpose:</strong> Provide learning materials</p>
+                    <p><strong>Interactivity:</strong> Expandable cards, filter by difficulty</p>
 
-            <h3>4. Resources Page</h3>
-            <p><strong>Purpose:</strong> Offer additional learning links</p>
-            <p><strong>Interactivity:</strong> Filterable, opens in new tabs</p>
+                    <h3>Exercises Page</h3>
+                    <p><strong>Purpose:</strong> Practice coding</p>
+                    <p><strong>Interactivity:</strong> Code editor, run button, syntax checking</p>
 
-            <h3>5. About Page</h3>
-            <p><strong>Purpose:</strong> Info about the platform</p>
-            <p><strong>Interactivity:</strong> FAQ accordion, contact form with validation</p>
-        </section>
+                    <h3>Resources Page</h3>
+                    <p><strong>Purpose:</strong> Offer additional learning links</p>
+                    <p><strong>Interactivity:</strong> Filterable, opens in new tabs</p>
 
-        <section>
-            <h2>Dynamic Functionality</h2>
-            <ul>
-                <li><strong>Interactive Code Editor:</strong> Browser-based using CodeMirror</li>
-                <li><strong>Concept Visualizer:</strong> Animates JavaScript ideas with jQuery/SVG</li>
-                <li><strong>Progress Tracker:</strong> Tracks learning via localStorage</li>
-                <li><strong>Interactive Quiz:</strong> End-of-lesson challenge with feedback</li>
-                <li><strong>Responsive Navigation:</strong> Hamburger menu using jQuery</li>
-            </ul>
-        </section>
+                    <h3>About Page</h3>
+                    <p><strong>Purpose:</strong> Info about the platform</p>
+                    <p><strong>Interactivity:</strong> FAQ accordion, contact form with validation</p>
 
-        <section>
-            <h2>Technical Notes</h2>
-            <ul>
-                <li>All data storage via localStorage</li>
-                <li>No server-side functionality required</li>
-                <li>jQuery UI for UI components</li>
-                <li>AJAX for loading code samples</li>
-                <li>Form validation with JavaScript</li>
-            </ul>
-        </section>
+                    <h2>Dynamic Functionality</h2>
+                    <ul>
+                        <li><strong>Interactive Code Editor:</strong> Browser-based using CodeMirror</li>
+                        <li><strong>Concept Visualizer:</strong> Animates JavaScript ideas with jQuery/SVG</li>
+                        <li><strong>Progress Tracker:</strong> Tracks learning via localStorage</li>
+                        <li><strong>Interactive Quiz:</strong> End-of-lesson challenge with feedback</li>
+                        <li><strong>Responsive Navigation:</strong> Hamburger menu using jQuery</li>
+                    </ul>
 
-        <section>
-            <h2>References</h2>
-            <ul>
-                <li>CodeMirror (code editor)</li>
-                <li>jQuery UI (UI widgets)</li>
-                <li>MDN Web Docs (developer documentation)</li>
-                <li>W3Schools (interactive examples)</li>
-            </ul>
+                    <h2>Technical Notes</h2>
+                    <ul>
+                        <li>All data storage via localStorage</li>
+                        <li>No server-side functionality required</li>
+                        <li>jQuery UI for UI components</li>
+                        <li>AJAX for loading code samples</li>
+                        <li>Form validation with JavaScript</li>
+                    </ul>
+
+                    <h2>References</h2>
+                    <ul>
+                        <li>CodeMirror (code editor)</li>
+                        <li>jQuery UI (UI widgets)</li>
+                        <li>MDN Web Docs (developer documentation)</li>
+                        <li>W3Schools (interactive examples)</li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        &copy; 2025 CodeMentor JS | Created for UNCC Project
-        <p>
-            <a href="https://validator.w3.org/check?uri=referer">HTML Valid</a> |
-            <a href="https://jigsaw.w3.org/css-validator/check/referer">CSS Valid</a>
-        </p>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CodeMentor JS</h3>
+                    <p>Your interactive guide to JavaScript fundamentals.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="lessons.html">Lessons</a></li>
+                        <li><a href="exercises.html">Exercises</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul class="social-links">
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-github"></i></a></li>
+                        <li><a href="#"><i class="fab fa-discord"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeMentor JS. All rights reserved.</p>
+                <p>
+                    <a href="https://validator.w3.org/check?uri=referer">HTML Valid</a> |
+                    <a href="https://jigsaw.w3.org/css-validator/check/referer">CSS Valid</a>
+                </p>
+            </div>
+        </div>
     </footer>
 
     <script src="scripts.js"></script>
-
 </body>
 
 </html>
