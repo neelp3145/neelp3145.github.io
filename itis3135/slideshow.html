@@ -8,6 +8,61 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
+<style>
+    body {
+        font-family: Calibri, sans-serif;
+        margin: 1in;
+        background-color: #fdfdfd;
+        color: #333;
+    }
+
+    h1,
+    h2 {
+        text-align: center;
+    }
+
+    .slideshow-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    #mainImage {
+        width: 80%;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    #caption {
+        margin-top: 10px;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .thumbnails {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .thumb {
+        width: 100px;
+        height: 60px;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: transform 0.2s;
+    }
+
+    .thumb:hover {
+        transform: scale(1.1);
+        border: 2px solid #444;
+    }
+</style>
+
 <body>
     <div id="header"></div>
 
