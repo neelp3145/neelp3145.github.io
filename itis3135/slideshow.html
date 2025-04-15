@@ -137,6 +137,34 @@
     .left-align {
         text-align: left;
     }
+
+    .arrow-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        background-color: rgba(0, 0, 0, 0.4);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 50%;
+        z-index: 2;
+        transition: background-color 0.3s;
+    }
+
+    #prevBtn {
+        left: 2%;
+    }
+
+    #nextBtn {
+        right: 2%;
+    }
+
+    .slideshow-container {
+        position: relative;
+        display: inline-block;
+    }
 </style>
 
 
@@ -149,8 +177,11 @@
 
         <div class="slideshow-container">
             <img id="mainImage" src="images/N.jpg" alt="N - for Neymar Jr.">
+            <button id="prevBtn" class="arrow-btn">&#10094;</button>
+            <button id="nextBtn" class="arrow-btn">&#10095;</button>
             <div id="caption">N - for Neymar Jr.</div>
         </div>
+
 
         <div class="thumbnails">
             <img src="images/N.jpg" class="thumb" alt="N - for Neymar Jr.">
