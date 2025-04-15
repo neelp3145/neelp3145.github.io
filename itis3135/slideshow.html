@@ -123,17 +123,19 @@
         max-width: 800px;
         font-size: 0.95rem;
         line-height: 1.5;
-        text-align: left;
     }
 
     .notes ul {
-        text-align: left;
         padding-left: 1.5rem;
         list-style-type: disc;
     }
 
     .notes h3 {
         margin-top: 0;
+    }
+
+    .left-align {
+        text-align: left;
     }
 </style>
 
@@ -179,14 +181,15 @@
     <section class="notes">
         <h3>Notes</h3>
         <ul>
-            <li><strong>Sites:</strong>
+            <li class="left-align"><strong>Sites:</strong>
                 <a href="https://www.w3schools.com/howto/howto_js_slideshow_gallery.asp" target="_blank">
                     W3Schools Slideshow Gallery
                 </a>
             </li>
-            <li><strong>People:</strong> I got help from ChatGPT with debugging thumbnail sizing and slideshow image
+            <li class="left-align"><strong>People:</strong> I got help from ChatGPT with debugging thumbnail sizing and
+                slideshow image
                 loading logic.</li>
-            <li><strong>Challenges:</strong>
+            <li class="left-align"><strong>Challenges:</strong>
                 Making the thumbnail images consistent in size and making sure the main slideshow image adjusted
                 properly for different image formats like .avif and .jpg. Fixed it by using object-fit, aspect-ratio,
                 and consistent dimensions in CSS.
