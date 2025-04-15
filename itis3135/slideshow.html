@@ -52,14 +52,21 @@
         width: 100px;
         height: 60px;
         object-fit: cover;
-        cursor: pointer;
+        aspect-ratio: 5 / 3;
         border-radius: 6px;
         transition: transform 0.2s;
+        object-position: center;
+        background-color: #eee;
     }
+
 
     .thumb:hover {
         transform: scale(1.1);
         border: 2px solid #444;
+    }
+
+    .footer {
+        margin-top: 20px;
     }
 </style>
 
@@ -91,7 +98,7 @@
         </div>
     </main>
 
-    <div id="footer"></div>
+    <div class="footer" id="footer"></div>
 
     <script src="scripts/slideshow.js"></script>
     <script>
