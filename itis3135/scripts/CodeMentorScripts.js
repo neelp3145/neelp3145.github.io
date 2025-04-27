@@ -139,4 +139,31 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // Lesson Filter Interactivity
+    document.addEventListener('DOMContentLoaded', function () {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const lessonCards = document.querySelectorAll('.lesson-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                const filter = this.getAttribute('data-filter');
+
+                lessonCards.forEach(card => {
+                    const level = card.getAttribute('data-level');
+                    if (filter === 'all' || level === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+
 });
