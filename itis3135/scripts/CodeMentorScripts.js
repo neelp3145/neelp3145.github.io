@@ -191,7 +191,6 @@ document.addEventListener('DOMContentLoaded', function () {
         navMenu.classList.toggle('active');
     });
 
-    // This is where the JS for the button click should go
     document.querySelectorAll('.start-lesson-btn').forEach(button => {
         button.addEventListener('click', function () {
             alert('Awesome! Get ready to start your lesson 🚀');
