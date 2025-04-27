@@ -166,4 +166,37 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Filtering Lessons
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filter = button.getAttribute('data-filter');
+            document.querySelectorAll('.lesson-card').forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-level') === filter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.getElementById('main-nav');
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    // Start Lesson Button Alert
+    document.querySelectorAll('.start-lesson-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Awesome! Get ready to start your lesson 🚀');
+        });
+    });
+
 });
