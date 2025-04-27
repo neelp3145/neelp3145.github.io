@@ -77,53 +77,34 @@ helloWorld();</textarea>
                             number, and after each guess, they will be told whether their guess is too high, too low, or
                             correct.</p>
                         <div class="code-editor">
-                            <textarea class="exercise-code" placeholder="Write your code here...">
-                                function startGuessingGame() {
-                                    const randomNumber = Math.floor(Math.random() * 100) + 1; // Secret number
-                                    let remainingTries = 5; // The user gets 5 tries
-                                    
-                                    // Function to handle the guesses
-                                    function guessNumber() {
-                                        if (remainingTries === 0) {
-                                            alert('Game Over! You have no more tries left.');
-                                            return;
-                                        }
-                                        
-                                        // Prompt the user to make a guess
-                                        const userGuess = parseInt(prompt(`Guess a number between 1 and 100. You have ${remainingTries} tries left:`));
-                                        
-                                        // Check if the guess is valid
-                                        if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
-                                            alert('Please enter a valid number between 1 and 100.');
-                                            return guessNumber();
-                                        }
+                            <textarea class="exercise-code" placeholder="Write your code here...">function startGuessingGame() {
+                    const randomNumber = Math.floor(Math.random() * 100) + 1;
+                    let guesses = 0;
                 
-                                        // Compare the guess with the random number
-                                        if (userGuess === randomNumber) {
-                                            alert(`Congratulations! You guessed the number correctly in ${5 - remainingTries + 1} tries.`);
-                                        } else if (userGuess < randomNumber) {
-                                            remainingTries--;
-                                            alert('Too low! Try again.');
-                                            guessNumber();
-                                        } else if (userGuess > randomNumber) {
-                                            remainingTries--;
-                                            alert('Too high! Try again.');
-                                            guessNumber();
-                                        }
-                                    }
-                                    
-                                    guessNumber();
-                                }
-                            </textarea>
-                            <button class="btn btn-run" onclick="startGuessingGame()">Run Code</button>
+                    function guessNumber() {
+                        const userGuess = prompt("Guess a number between 1 and 100:");
+                        guesses++;
+                        if (userGuess == randomNumber) {
+                            alert(`Correct! You guessed the number in ${guesses} attempts.`);
+                        } else if (userGuess < randomNumber) {
+                            alert("Too low! Try again.");
+                            guessNumber();
+                        } else if (userGuess > randomNumber) {
+                            alert("Too high! Try again.");
+                            guessNumber();
+                        }
+                    }
+                
+                    guessNumber();
+                }</textarea>
+                            <button class="btn btn-run" onclick="runCode('intermediate')">Run Code</button>
                         </div>
                         <div class="exercise-output">
                             <h4>Output:</h4>
-                            <div class="output-content"></div>
+                            <div class="output-content" id="output-intermediate"></div>
                         </div>
                     </div>
                 </div>
-
 
                 <!-- Advanced Exercise: Palindrome Checker -->
                 <div class="exercise-content" id="advanced">
@@ -184,6 +165,17 @@ isPalindrome('racecar');</textarea>
     </footer>
 
     <script src="../scripts/CodeMentorScripts.js"></script>
+    <script>
+        function runCode(exercise) {
+            const code = document.querySelector(`#${exercise} .exercise-code`).value;
+            const outputElement = document.querySelector(`#output-${exercise}`);
+            try {
+                outputElement.innerHTML = eval(code); // Executes the code in the textarea
+            } catch (error) {
+                outputElement.innerHTML = `Error: ${error.message}`;
+            }
+        }
+    </script>
 </body>
 
 </html>
