@@ -212,16 +212,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Function to run the code based on the tab
-    function runCode(tab) {
-        const code = document.querySelector(`#${tab} .exercise-code`).value;
-        const outputElement = document.getElementById(`output-${tab}`);
-
+    function runCode(exercise) {
+        const code = document.querySelector(`#${exercise} .exercise-code`).value;
+        const outputElement = document.querySelector(`#output-${exercise}`);
         try {
-            const result = new Function(code)();
-            outputElement.textContent = result;
+            outputElement.innerHTML = eval(code); // Executes the code in the textarea
         } catch (error) {
-            outputElement.textContent = `Error: ${error.message}`;
+            outputElement.innerHTML = `Error: ${error.message}`;
         }
     }
 
