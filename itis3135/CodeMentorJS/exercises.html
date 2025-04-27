@@ -74,11 +74,10 @@ helloWorld();</textarea>
                     <div class="exercise-card">
                         <h3>Number Guessing Game</h3>
                         <p>Write a function that generates a random number between 1 and 100. The user will guess the
-                            number, and after
-                            each guess, they will be told whether their guess is too high, too low, or correct.</p>
+                            number, and after each guess, they will be told whether their guess is too high, too low, or
+                            correct.</p>
                         <div class="code-editor">
-                            <textarea class="exercise-code" placeholder="Write your code here...">
-                function startGuessingGame() {
+                            <textarea class="exercise-code" placeholder="Write your code here...">function startGuessingGame() {
                     const randomNumber = Math.floor(Math.random() * 100) + 1;
                     let guesses = 0;
                 
@@ -97,18 +96,17 @@ helloWorld();</textarea>
                     }
                 
                     guessNumber();
-                }
-                            </textarea>
-                            <button class="btn btn-run" onclick="runNumberGuessingGame()">Run Code</button>
+                }</textarea>
+                            <button class="btn btn-run" onclick="runCode('intermediate')">Run Code</button>
                         </div>
                         <div class="exercise-output">
                             <h4>Output:</h4>
-                            <div class="output-content"></div>
+                            <div class="output-content" id="output-intermediate"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Advanced Exercise -->
+                <!-- Advanced Exercise: Palindrome Checker -->
                 <div class="exercise-content" id="advanced">
                     <div class="exercise-card">
                         <h3>Palindrome Checker</h3>
@@ -120,16 +118,14 @@ helloWorld();</textarea>
     return cleanedStr === reversedStr;
 }
 isPalindrome('racecar');</textarea>
-                            <button class="btn btn-run" onclick="runCode('intermediate')">Run Code</button>
+                            <button class="btn btn-run" onclick="runCode('advanced')">Run Code</button>
                         </div>
                         <div class="exercise-output">
                             <h4>Output:</h4>
-                            <div class="output-content" id="output-intermediate"></div>
+                            <div class="output-content" id="output-advanced"></div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Additional exercise tabs would go here -->
             </div>
         </section>
     </main>
@@ -169,6 +165,17 @@ isPalindrome('racecar');</textarea>
     </footer>
 
     <script src="../scripts/CodeMentorScripts.js"></script>
+    <script>
+        function runCode(exercise) {
+            const code = document.querySelector(`#${exercise} .exercise-code`).value;
+            const outputElement = document.querySelector(`#output-${exercise}`);
+            try {
+                outputElement.innerHTML = eval(code); // Executes the code in the textarea
+            } catch (error) {
+                outputElement.innerHTML = `Error: ${error.message}`;
+            }
+        }
+    </script>
 </body>
 
 </html>
