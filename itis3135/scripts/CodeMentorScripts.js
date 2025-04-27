@@ -196,4 +196,42 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Awesome! Get ready to start your lesson 🚀');
         });
     });
+
+    // Function to switch between tabs
+    document.querySelectorAll('.tab-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const tabId = this.getAttribute('data-tab');
+            document.querySelectorAll('.exercise-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelector(`#${tabId}`).classList.add('active');
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            this.classList.add('active');
+        });
+    });
+
+    // Function to run the code based on the tab
+    function runCode(tab) {
+        const code = document.querySelector(`#${tab} .exercise-code`).value;
+        const outputElement = document.getElementById(`output-${tab}`);
+
+        try {
+            const result = new Function(code)();
+            outputElement.textContent = result;
+        } catch (error) {
+            outputElement.textContent = `Error: ${error.message}`;
+        }
+    }
+
+    function runNumberGuessingGame() {
+        // This function will execute the number guessing game
+        try {
+            eval(document.querySelector('.exercise-code').value);
+            startGuessingGame(); // This will call the guessing game
+        } catch (error) {
+            alert('There was an error in your code: ' + error.message);
+        }
+    }
 });

@@ -50,17 +50,81 @@
                     <button class="tab-btn" data-tab="advanced">Advanced</button>
                 </div>
 
+                <!-- Beginner Exercise -->
                 <div class="exercise-content active" id="beginner">
                     <div class="exercise-card">
                         <h3>Hello World</h3>
                         <p>Write a function that returns the string "Hello, World!"</p>
                         <div class="code-editor">
-                            <textarea class="exercise-code" placeholder="Write your code here..."></textarea>
-                            <button class="btn btn-run">Run Code</button>
+                            <textarea class="exercise-code" placeholder="Write your code here...">function helloWorld() {
+    return "Hello, World!";
+}
+helloWorld();</textarea>
+                            <button class="btn btn-run" onclick="runCode('beginner')">Run Code</button>
+                        </div>
+                        <div class="exercise-output">
+                            <h4>Output:</h4>
+                            <div class="output-content" id="output-beginner"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intermediate Exercise: Number Guessing Game -->
+                <div class="exercise-content" id="intermediate">
+                    <div class="exercise-card">
+                        <h3>Number Guessing Game</h3>
+                        <p>Write a function that generates a random number between 1 and 100. The user will guess the
+                            number, and after
+                            each guess, they will be told whether their guess is too high, too low, or correct.</p>
+                        <div class="code-editor">
+                            <textarea class="exercise-code" placeholder="Write your code here...">
+                function startGuessingGame() {
+                    const randomNumber = Math.floor(Math.random() * 100) + 1;
+                    let guesses = 0;
+                
+                    function guessNumber() {
+                        const userGuess = prompt("Guess a number between 1 and 100:");
+                        guesses++;
+                        if (userGuess == randomNumber) {
+                            alert(`Correct! You guessed the number in ${guesses} attempts.`);
+                        } else if (userGuess < randomNumber) {
+                            alert("Too low! Try again.");
+                            guessNumber();
+                        } else if (userGuess > randomNumber) {
+                            alert("Too high! Try again.");
+                            guessNumber();
+                        }
+                    }
+                
+                    guessNumber();
+                }
+                            </textarea>
+                            <button class="btn btn-run" onclick="runNumberGuessingGame()">Run Code</button>
                         </div>
                         <div class="exercise-output">
                             <h4>Output:</h4>
                             <div class="output-content"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Exercise -->
+                <div class="exercise-content" id="advanced">
+                    <div class="exercise-card">
+                        <h3>Palindrome Checker</h3>
+                        <p>Write a function that checks if a given string is a palindrome.</p>
+                        <div class="code-editor">
+                            <textarea class="exercise-code" placeholder="Write your code here...">function isPalindrome(str) {
+    const cleanedStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    const reversedStr = cleanedStr.split('').reverse().join('');
+    return cleanedStr === reversedStr;
+}
+isPalindrome('racecar');</textarea>
+                            <button class="btn btn-run" onclick="runCode('intermediate')">Run Code</button>
+                        </div>
+                        <div class="exercise-output">
+                            <h4>Output:</h4>
+                            <div class="output-content" id="output-intermediate"></div>
                         </div>
                     </div>
                 </div>
