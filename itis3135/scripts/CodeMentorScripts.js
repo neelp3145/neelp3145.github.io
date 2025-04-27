@@ -198,5 +198,4 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Awesome! Get ready to start your lesson 🚀');
         });
     });
-
 });
