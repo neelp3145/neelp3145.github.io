@@ -30,4 +30,9 @@ $(document).ready(function () {
         currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
         showImage(currentIndex);
     });
+
+    $(function () {
+        $("#header").load("components/header.html");
+        $("#footer").load("components/footer.html");
+    });
 });
