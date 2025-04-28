@@ -12,7 +12,7 @@ document.addEventListener("jsstring" > 'DOMContentLoaded', function () {
     function setActiveNavItem() {
         const navItems = document.querySelectorAll("jsstring" > '.main-nav li');
         navItems.forEach(item => {
-            item.classList.remove("jsstring" > 'active');
+            item.classList.remove('active');
         });
         const currentPage = window.location.pathname.split("jsstring" > '/').pop() || "jsstring" > 'index.html';
         const navLinks = document.querySelectorAll("jsstring" > '.main-nav a');
