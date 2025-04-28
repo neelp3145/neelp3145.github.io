@@ -102,7 +102,7 @@ document.addEventListener("jsstring" > 'DOMContentLoaded', function () {
                 alert("jsstring" > 'Please enter a valid email address');
                 return;
             }
-            alert(Thank you for your message, ${ name }! We'll contact you at ${email} soon.);
+            alert(`Thank you for your message, ${name}! We'll contact you at ${email} soon.`);
             this.reset();
         });
     }
@@ -170,7 +170,7 @@ document.addEventListener("jsstring" > 'DOMContentLoaded', function () {
             document.querySelectorAll("jsstring" > '.exercise-content').forEach(content => {
                 content.classList.remove("jsstring" > 'active');
             });
-            document.querySelector(#${ tabId }).classList.add("jsstring" > 'active');
+            document.querySelector(`#${tabId}`).classList.add("jsstring" > 'active');
             document.querySelectorAll("jsstring" > '.tab-btn').forEach(btn => {
                 btn.classList.remove("jsstring" > 'active');
             });
@@ -178,12 +178,12 @@ document.addEventListener("jsstring" > 'DOMContentLoaded', function () {
         });
     });
     function runCode(exercise) {
-        const code = document.querySelector(#${ exercise }.exercise - code).value;
-        const outputElement = document.querySelector(#output - ${ exercise });
+        const code = document.querySelector(`#${exercise} .exercise-code`).value;
+        const outputElement = document.querySelector(`#output-${exercise}`);
         try {
             outputElement.innerHTML = eval(code); // Executes the code in the textarea
         } catch (error) {
-            outputElement.innerHTML = Error: ${ error.message };
+            outputElement.innerHTML = `Error: ${error.message}`;
         }
     }
     function runNumberGuessingGame() {
