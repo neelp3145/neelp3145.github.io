@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    document.getElementById('reset-page')?.addEventListener('click', function (e) {
+    document.getElementById('reset-page').addEventListener('click', function (e) {
         e.preventDefault();
         resetPage();
     });
