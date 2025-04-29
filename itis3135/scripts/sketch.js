@@ -2,14 +2,22 @@ let x = 100;
 let y = 100;
 
 function setup() {
-    createCanvas(600, 400);
+    const canvas = createCanvas(600, 400);
     background(200);
+
+    // Attach clear button functionality
+    const clearButton = document.getElementById('clearBtn');
+    clearButton.addEventListener('click', () => {
+        background(200); // Reset background to gray
+    });
 }
 
 function draw() {
-    stroke(0);
-    strokeWeight(2);
-    line(x, y, mouseX, mouseY);
+    if (mouseIsPressed) {
+        stroke(0);
+        strokeWeight(2);
+        line(x, y, mouseX, mouseY);
+    }
     x = mouseX;
     y = mouseY;
 }
