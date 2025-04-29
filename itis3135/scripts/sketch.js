@@ -21,3 +21,14 @@ function draw() {
     x = mouseX;
     y = mouseY;
 }
+
+function setup() {
+    const canvas = createCanvas(600, 400);
+    canvas.parent('drawingArea'); // Attach canvas to the div
+    background(200);
+
+    const clearButton = document.getElementById('clearBtn');
+    clearButton.addEventListener('click', () => {
+        background(200);
+    });
+}

@@ -8,6 +8,30 @@
     <link rel="stylesheet" href="styles/default.css" />
 </head>
 
+<style>
+    #drawingArea {
+        position: relative;
+        display: inline-block;
+    }
+
+    #clearBtn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10;
+        padding: 6px 12px;
+        background-color: #f44336;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #clearBtn:hover {
+        background-color: #d32f2f;
+    }
+</style>
+
 <body>
     <header>
         <nav>
@@ -20,7 +44,10 @@
     <main>
         <h2>Drawing with p5.js</h2>
         <p>This page demonstrates a dynamic drawing using the p5.js library.</p>
-        <button id="clearBtn">Clear Canvas</button>
+        <div id="drawingArea">
+            <button id="clearBtn">Clear Canvas</button>
+            <!-- Canvas will appear here -->
+        </div>
     </main>
 
     <footer>
