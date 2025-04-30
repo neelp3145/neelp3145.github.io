@@ -1,53 +1,73 @@
-let x = 100;
-let y = 100;
-let drawing = [];
-let undone = [];
+let strokes = [];        // All completed strokes
+let undoneStrokes = [];  // Redo stack
+let currentStroke = [];  // The stroke being drawn
 
 function setup() {
     const canvas = createCanvas(600, 400);
     canvas.parent('drawingArea');
     background(200);
 
-    // Event listeners
-    document.getElementById('clearBtn').addEventListener('click', clearCanvas);
-    document.getElementById('undoBtn').addEventListener('click', undoLast);
-    document.getElementById('redoBtn').addEventListener('click', redoLast);
+    // Clear button
+    document.getElementById('clearBtn').addEventListener('click', () => {
+        strokes = [];
+        undoneStrokes = [];
+        background(200);
+    });
+
+    // Undo button
+    document.getElementById('undoBtn').addEventListener('click', () => {
+        if (strokes.length > 0) {
+            undoneStrokes.push(strokes.pop());
+        }
+        redrawCanvas();
+    });
+
+    // Redo button
+    document.getElementById('redoBtn').addEventListener('click', () => {
+        if (undoneStrokes.length > 0) {
+            strokes.push(undoneStrokes.pop());
+        }
+        redrawCanvas();
+    });
 }
 
 function draw() {
-    if (mouseIsPressed) {
-        const newLine = { x1: x, y1: y, x2: mouseX, y2: mouseY };
-        drawing.push(newLine);
-        undone = []; // Clear redo stack on new draw
-    }
-
     background(200);
+    stroke(0);
+    strokeWeight(2);
+    noFill();
 
-    // Redraw all saved lines
-    for (let line of drawing) {
-        stroke(0);
-        strokeWeight(2);
-        line(x = line.x1, y = line.y1, line.x2, line.y2);
+    // Draw all saved strokes
+    for (let strokeSet of strokes) {
+        beginShape();
+        for (let pt of strokeSet) {
+            vertex(pt.x, pt.y);
+        }
+        endShape();
     }
 
-    x = mouseX;
-    y = mouseY;
-}
-
-function clearCanvas() {
-    drawing = [];
-    undone = [];
-    background(200);
-}
-
-function undoLast() {
-    if (drawing.length > 0) {
-        undone.push(drawing.pop());
+    // Draw current stroke while dragging
+    if (mouseIsPressed && currentStroke.length > 0) {
+        beginShape();
+        for (let pt of currentStroke) {
+            vertex(pt.x, pt.y);
+        }
+        endShape();
     }
 }
 
-function redoLast() {
-    if (undone.length > 0) {
-        drawing.push(undone.pop());
+function mousePressed() {
+    currentStroke = [];
+}
+
+function mouseDragged() {
+    currentStroke.push({ x: mouseX, y: mouseY });
+}
+
+function mouseReleased() {
+    if (currentStroke.length > 0) {
+        strokes.push(currentStroke);
+        currentStroke = [];
+        undoneStrokes = []; // Clear redo stack after new stroke
     }
 }
