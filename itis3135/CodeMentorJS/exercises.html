@@ -164,18 +164,7 @@ isPalindrome('racecar');</textarea>
         </div>
     </footer>
 
-    <script src="../scripts/CodeMentorScripts.js"></script>
-    <script>
-        function runCode(exercise) {
-            const code = document.querySelector(`#${exercise} .exercise-code`).value;
-            const outputElement = document.querySelector(`#output-${exercise}`);
-            try {
-                outputElement.innerHTML = eval(code); // Executes the code in the textarea
-            } catch (error) {
-                outputElement.innerHTML = `Error: ${error.message}`;
-            }
-        }
-    </script>
+    <script src="../scripts/CodeMentorScript.js"></script>
 </body>
 
 </html>
