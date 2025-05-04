@@ -191,7 +191,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Interactive JavaScript Quiz
     const quizData = [
         {
             question: "Which keyword declares a variable in JavaScript?",
@@ -210,41 +209,71 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     ];
 
-    function loadQuiz() {
+    let currentQuestionIndex = 0;
+
+    function loadQuestion(index) {
         const quiz = document.getElementById('quiz');
         if (!quiz) return;
 
-        quiz.innerHTML = quizData.map((q, index) => {
-            const optionsHTML = q.options.map(option => `
-      <label>
-        <input type="radio" name="q${index}" value="${option}" />
-        ${option}
-      </label>
-    `).join('<br>');
+        const questionObj = quizData[index];
+        const optionsHTML = questionObj.options.map(option => `
+    <label>
+      <input type="radio" name="q${index}" value="${option}" />
+      ${option}
+    </label><br>
+  `).join('');
 
-            return `
-      <div class="quiz-question">
-        <p><strong>Q${index + 1}:</strong> ${q.question}</p>
-        ${optionsHTML}
-      </div>
-    `;
-        }).join('<hr>');
+        quiz.innerHTML = `
+    <div class="quiz-question">
+      <p><strong>Question ${index + 1} of ${quizData.length}:</strong> ${questionObj.question}</p>
+      ${optionsHTML}
+    </div>
+  `;
+
+        // Pre-check selected answer if user already selected it
+        const selected = document.querySelector(`input[name="q${index}"][value="${quizData[index].selected || ''}"]`);
+        if (selected) selected.checked = true;
+    }
+
+    function nextQuestion() {
+        saveSelectedAnswer();
+        if (currentQuestionIndex < quizData.length - 1) {
+            currentQuestionIndex++;
+            loadQuestion(currentQuestionIndex);
+        }
+    }
+
+    function prevQuestion() {
+        saveSelectedAnswer();
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            loadQuestion(currentQuestionIndex);
+        }
+    }
+
+    function saveSelectedAnswer() {
+        const selected = document.querySelector(`input[name="q${currentQuestionIndex}"]:checked`);
+        if (selected) {
+            quizData[currentQuestionIndex].selected = selected.value;
+        }
     }
 
     function submitQuiz() {
+        saveSelectedAnswer();
         let score = 0;
 
         quizData.forEach((q, i) => {
-            const selected = document.querySelector(`input[name="q${i}"]:checked`);
-            if (selected && selected.value === q.answer) {
+            if (q.selected === q.answer) {
                 score++;
             }
         });
 
-        const result = document.getElementById('quiz-score');
-        result.textContent = `You scored ${score} out of ${quizData.length}!`;
+        document.getElementById('quiz-score').textContent = `You scored ${score} out of ${quizData.length}!`;
     }
 
-    window.addEventListener('DOMContentLoaded', loadQuiz);
+    window.addEventListener('DOMContentLoaded', () => {
+        loadQuestion(currentQuestionIndex);
+    });
+
 
 });

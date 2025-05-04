@@ -8,11 +8,44 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 
+<style>
+    #quiz-container {
+        max-width: 600px;
+        margin: auto;
+        padding: 1rem;
+        font-family: Arial, sans-serif;
+    }
+
+    #quiz-controls {
+        margin-top: 1rem;
+    }
+
+    #quiz-controls button {
+        margin-right: 10px;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    #quiz-controls button:hover {
+        background-color: #45a049;
+    }
+</style>
+
 <body>
     <div id="quiz-container">
         <h1>JavaScript Fundamentals Quiz</h1>
         <div id="quiz"></div>
-        <button onclick="submitQuiz()">Submit</button>
+
+        <div id="quiz-controls">
+            <button onclick="prevQuestion()">Previous</button>
+            <button onclick="nextQuestion()">Next</button>
+            <button onclick="submitQuiz()">Submit</button>
+        </div>
+
         <p id="quiz-score"></p>
     </div>
 
