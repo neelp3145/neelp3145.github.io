@@ -22,18 +22,38 @@ h1 {
     margin-bottom: 5px;
 }
 
-nav {
+header nav {
     margin-top: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    padding: 10px 0;
+    justify-content: space-around;
+    /* Distributes space evenly */
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    /* Prevents scrolling */
 }
 
-nav a {
+header nav a {
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 8px 12px;
+    /* Slightly reduced padding */
     transition: color 0.3s ease-in-out;
+    white-space: nowrap;
+    flex-shrink: 1;
+    /* Allows slight shrinking if needed */
+    flex-grow: 1;
+    /* Allows items to grow and share space */
+    text-align: center;
+    /* Centers text within each link */
+    min-width: max-content;
+    /* Ensures text doesn't wrap */
 }
 
-nav a:hover {
+header nav a:hover {
     color: #1abc9c;
 }
 
@@ -44,11 +64,6 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
     text-align: center;
-}
-
-header {
-    margin-left: 100px;
-    margin-right: 100px;
 }
 
 footer {
@@ -72,12 +87,16 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
-    main {
-        width: 95%;
+    nav {
+        flex-wrap: wrap;
+        /* Allows wrapping on small screens */
+        justify-content: center;
     }
 
     nav a {
-        display: block;
-        padding: 10px;
+        flex-grow: 0;
+        /* Prevents stretching on mobile */
+        padding: 6px 10px;
+        margin: 2px;
     }
 }
