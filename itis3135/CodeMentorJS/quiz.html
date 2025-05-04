@@ -41,15 +41,120 @@
         <div id="quiz"></div>
 
         <div id="quiz-controls">
-            <button onclick="prevQuestion()">Previous</button>
-            <button onclick="nextQuestion()">Next</button>
-            <button onclick="submitQuiz()">Submit</button>
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
+            <button id="submitBtn">Submit</button>
         </div>
 
         <p id="quiz-score"></p>
     </div>
 
-    <script src="CodeMentor.js"></script>
+    <script>
+        // --- Quiz Data ---
+        const quizData = [
+            {
+                question: "Which keyword declares a variable in JavaScript?",
+                options: ["var", "let", "const", "define"],
+                answer: "var"
+            },
+            {
+                question: "What does DOM stand for?",
+                options: [
+                    "Document Object Model",
+                    "Data Object Manager",
+                    "Digital Ordinance Model",
+                    "Desktop Oriented Mode"
+                ],
+                answer: "Document Object Model"
+            },
+            {
+                question: "Which method adds to the end of an array?",
+                options: ["push()", "pop()", "shift()", "unshift()"],
+                answer: "push()"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        // --- Render a question ---
+        function loadQuestion(index) {
+            const quizEl = document.getElementById("quiz");
+            const q = quizData[index];
+
+            // Build options
+            const opts = q.options
+                .map(
+                    (opt) => `
+        <label>
+          <input type="radio" name="q${index}" value="${opt}" />
+          ${opt}
+        </label><br>`
+                )
+                .join("");
+
+            quizEl.innerHTML = `
+        <div class="quiz-question">
+          <p><strong>Question ${index + 1} of ${quizData.length}:</strong> ${q.question}</p>
+          ${opts}
+        </div>
+      `;
+
+            // pre-select if previously answered
+            if (q.selected) {
+                const radio = document.querySelector(
+                    `input[name="q${index}"][value="${q.selected}"]`
+                );
+                if (radio) radio.checked = true;
+            }
+
+            // disable/enable nav buttons
+            document.getElementById("prevBtn").disabled = index === 0;
+            document.getElementById("nextBtn").disabled = index === quizData.length - 1;
+        }
+
+        // --- Save user choice ---
+        function saveAnswer() {
+            const selector = `input[name="q${currentQuestionIndex}"]:checked`;
+            const sel = document.querySelector(selector);
+            quizData[currentQuestionIndex].selected = sel ? sel.value : null;
+        }
+
+        // --- Next / Prev / Submit ---
+        function nextQuestion() {
+            saveAnswer();
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion(currentQuestionIndex);
+            }
+        }
+        function prevQuestion() {
+            saveAnswer();
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion(currentQuestionIndex);
+            }
+        }
+        function submitQuiz() {
+            saveAnswer();
+            let score = 0;
+            quizData.forEach((q) => {
+                if (q.selected === q.answer) score++;
+            });
+            document.getElementById(
+                "quiz-score"
+            ).textContent = `You scored ${score} of ${quizData.length}!`;
+            // optionally hide controls
+            document.getElementById("quiz-controls").style.display = "none";
+        }
+
+        // --- Wire up buttons & initial load ---
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("nextBtn").addEventListener("click", nextQuestion);
+            document.getElementById("prevBtn").addEventListener("click", prevQuestion);
+            document.getElementById("submitBtn").addEventListener("click", submitQuiz);
+            loadQuestion(currentQuestionIndex);
+        });
+    </script>
 </body>
 
 </html>
