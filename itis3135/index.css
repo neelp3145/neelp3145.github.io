@@ -46,6 +46,11 @@ main {
     text-align: center;
 }
 
+header {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
 footer {
     width: 100%;
     text-align: center;
