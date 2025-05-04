@@ -19,7 +19,6 @@ function setup() {
         if (strokes.length > 0) {
             undoneStrokes.push(strokes.pop());
         }
-        redrawCanvas();
     });
 
     // Redo button
@@ -27,7 +26,6 @@ function setup() {
         if (undoneStrokes.length > 0) {
             strokes.push(undoneStrokes.pop());
         }
-        redrawCanvas();
     });
 }
 
