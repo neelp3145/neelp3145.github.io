@@ -4,156 +4,268 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaScript Quiz</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>CodeMentorJS Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
 
 <style>
-    #quiz-container {
+    /* General styles */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #eef2f3, #8e9eab);
+        color: #333;
+        margin: 0;
+        padding: 2rem;
+    }
+
+    /* Quiz container */
+    .quiz-container {
+        background-color: #ffffffcc;
         max-width: 600px;
         margin: auto;
-        padding: 1rem;
-        font-family: Arial, sans-serif;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
-    #quiz-controls {
-        margin-top: 1rem;
+    /* Title and question counter */
+    .quiz-container h1 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #333;
     }
 
-    #quiz-controls button {
+    .quiz-container h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: #555;
+    }
+
+    /* Answers styling */
+    .answers {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .answers label {
+        background-color: #f3f4f6;
+        padding: 0.75rem;
+        border-radius: 8px;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .answers input[type="radio"] {
         margin-right: 10px;
-        padding: 0.5rem 1rem;
-        border-radius: 6px;
-        background-color: #4caf50;
+    }
+
+    .answers label:hover,
+    .answers input[type="radio"]:checked+label {
+        border-color: #0077ff;
+        background-color: #e0f0ff;
+    }
+
+    /* Buttons */
+    button {
+        background-color: #0077ff;
         color: white;
         border: none;
+        padding: 0.6rem 1.2rem;
+        margin-right: 0.5rem;
+        border-radius: 8px;
+        font-size: 1rem;
         cursor: pointer;
+        transition: background-color 0.3s ease;
     }
 
-    #quiz-controls button:hover {
-        background-color: #45a049;
+    button:hover {
+        background-color: #005dc1;
+    }
+
+    button:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+    }
+
+    /* Result styling */
+    #result {
+        margin-top: 1.5rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        color: #006600;
+    }
+
+    /* Reset button */
+    #resetBtn {
+        display: none;
+        margin-top: 1rem;
+        background-color: #ff5252;
+    }
+
+    #resetBtn:hover {
+        background-color: #d63031;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 600px) {
+        .quiz-container {
+            padding: 1rem;
+        }
+
+        button {
+            width: 100%;
+            margin: 0.25rem 0;
+        }
     }
 </style>
 
 <body>
-    <div id="quiz-container">
+    <header id="header"></header>
+    <nav class="main-nav">
+        <ul>
+            <a href="index.html">Home</a>
+            <a href="lessons.html">Lessons</a>
+            <a href="exercises.html">Exercises</a>
+            <a href="resources.html">Resources</a>
+            <a href="projectOverview.html">Project Overview</a>
+            <a href="about.html">About</a>
+            <a href="../index.html">Click Here To Go Back Home</a>
+        </ul>
+    </nav>
+    <main class="quiz-container">
         <h1>JavaScript Fundamentals Quiz</h1>
-        <div id="quiz"></div>
 
-        <div id="quiz-controls">
+        <div id="quiz-question"></div>
+
+        <div class="quiz-buttons">
             <button id="prevBtn">Previous</button>
             <button id="nextBtn">Next</button>
             <button id="submitBtn">Submit</button>
+            <button id="resetBtn" style="display:none;">Reset Quiz</button>
         </div>
 
-        <p id="quiz-score"></p>
-    </div>
+        <div id="quiz-result"></div>
+    </main>
+
+    <footer id="footer">
+        <p>
+            <a href="https://validator.w3.org/check?uri=referer">HTML Valid</a> |
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">CSS Valid</a>
+        </p>
+    </footer>
 
     <script>
-        // --- Quiz Data ---
         const quizData = [
             {
-                question: "Which keyword declares a variable in JavaScript?",
-                options: ["var", "let", "const", "define"],
-                answer: "var"
-            },
-            {
                 question: "What does DOM stand for?",
-                options: [
-                    "Document Object Model",
-                    "Data Object Manager",
-                    "Digital Ordinance Model",
-                    "Desktop Oriented Mode"
-                ],
-                answer: "Document Object Model"
+                choices: ["Document Object Model", "Data Object Manager", "Digital Ordinance Model", "Desktop Oriented Mode"],
+                answer: 0
             },
             {
-                question: "Which method adds to the end of an array?",
-                options: ["push()", "pop()", "shift()", "unshift()"],
-                answer: "push()"
+                question: "Which method adds a new item to the end of an array?",
+                choices: ["push()", "pop()", "shift()", "unshift()"],
+                answer: 0
+            },
+            {
+                question: "How do you write a comment in JavaScript?",
+                choices: ["<!-- comment -->", "// comment", "# comment", "** comment **"],
+                answer: 1
+            },
+            {
+                question: "What keyword is used to declare a variable in ES6?",
+                choices: ["var", "int", "let", "define"],
+                answer: 2
+            },
+            {
+                question: "What does '===’ compare in JavaScript?",
+                choices: ["Value only", "Type only", "Value and Type", "Memory address"],
+                answer: 2
             }
         ];
 
-        let currentQuestionIndex = 0;
+        let currentQuestion = 0;
+        const userAnswers = new Array(quizData.length).fill(null);
 
-        // --- Render a question ---
-        function loadQuestion(index) {
-            const quizEl = document.getElementById("quiz");
-            const q = quizData[index];
+        const quizQuestion = document.getElementById("quiz-question");
+        const result = document.getElementById("quiz-result");
+        const resetBtn = document.getElementById("resetBtn");
 
-            // Build options
-            const opts = q.options
-                .map(
-                    (opt) => `
-        <label>
-          <input type="radio" name="q${index}" value="${opt}" />
-          ${opt}
-        </label><br>`
-                )
-                .join("");
-
-            quizEl.innerHTML = `
-        <div class="quiz-question">
-          <p><strong>Question ${index + 1} of ${quizData.length}:</strong> ${q.question}</p>
-          ${opts}
-        </div>
+        function renderQuestion() {
+            const q = quizData[currentQuestion];
+            quizQuestion.innerHTML = `
+        <h2>Question ${currentQuestion + 1} of ${quizData.length}</h2>
+        <p>${q.question}</p>
+        ${q.choices.map((choice, i) => `
+          <label>
+            <input type="radio" name="answer" value="${i}" ${userAnswers[currentQuestion] === i ? "checked" : ""}>
+            ${choice}
+          </label><br>
+        `).join("")}
       `;
-
-            // pre-select if previously answered
-            if (q.selected) {
-                const radio = document.querySelector(
-                    `input[name="q${index}"][value="${q.selected}"]`
-                );
-                if (radio) radio.checked = true;
-            }
-
-            // disable/enable nav buttons
-            document.getElementById("prevBtn").disabled = index === 0;
-            document.getElementById("nextBtn").disabled = index === quizData.length - 1;
         }
 
-        // --- Save user choice ---
-        function saveAnswer() {
-            const selector = `input[name="q${currentQuestionIndex}"]:checked`;
-            const sel = document.querySelector(selector);
-            quizData[currentQuestionIndex].selected = sel ? sel.value : null;
+        function updateButtons() {
+            document.getElementById("prevBtn").disabled = currentQuestion === 0;
+            document.getElementById("nextBtn").disabled = currentQuestion === quizData.length - 1;
         }
 
-        // --- Next / Prev / Submit ---
-        function nextQuestion() {
+        document.getElementById("nextBtn").addEventListener("click", () => {
             saveAnswer();
-            if (currentQuestionIndex < quizData.length - 1) {
-                currentQuestionIndex++;
-                loadQuestion(currentQuestionIndex);
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                renderQuestion();
+                updateButtons();
             }
-        }
-        function prevQuestion() {
+        });
+
+        document.getElementById("prevBtn").addEventListener("click", () => {
             saveAnswer();
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
-                loadQuestion(currentQuestionIndex);
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+                updateButtons();
             }
-        }
-        function submitQuiz() {
+        });
+
+        document.getElementById("submitBtn").addEventListener("click", () => {
             saveAnswer();
             let score = 0;
-            quizData.forEach((q) => {
-                if (q.selected === q.answer) score++;
+            userAnswers.forEach((ans, i) => {
+                if (ans === quizData[i].answer) score++;
             });
-            document.getElementById(
-                "quiz-score"
-            ).textContent = `You scored ${score} of ${quizData.length}!`;
-            // optionally hide controls
-            document.getElementById("quiz-controls").style.display = "none";
+            result.innerHTML = `<h3>Your Score: ${score} / ${quizData.length}</h3>`;
+            document.querySelectorAll("input[name='answer']").forEach(input => input.disabled = true);
+            document.getElementById("submitBtn").disabled = true;
+            document.getElementById("nextBtn").disabled = true;
+            document.getElementById("prevBtn").disabled = true;
+            resetBtn.style.display = "inline-block";
+        });
+
+        resetBtn.addEventListener("click", () => {
+            currentQuestion = 0;
+            userAnswers.fill(null);
+            renderQuestion();
+            updateButtons();
+            result.innerHTML = "";
+            document.getElementById("submitBtn").disabled = false;
+            document.getElementById("nextBtn").disabled = false;
+            document.getElementById("prevBtn").disabled = false;
+            resetBtn.style.display = "none";
+        });
+
+        function saveAnswer() {
+            const selected = document.querySelector("input[name='answer']:checked");
+            userAnswers[currentQuestion] = selected ? parseInt(selected.value) : null;
         }
 
-        // --- Wire up buttons & initial load ---
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("nextBtn").addEventListener("click", nextQuestion);
-            document.getElementById("prevBtn").addEventListener("click", prevQuestion);
-            document.getElementById("submitBtn").addEventListener("click", submitQuiz);
-            loadQuestion(currentQuestionIndex);
-        });
+        renderQuestion();
+        updateButtons();
     </script>
 </body>
 
