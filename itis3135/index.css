@@ -29,28 +29,21 @@ header nav {
     white-space: nowrap;
     padding: 10px 0;
     justify-content: space-around;
-    /* Distributes space evenly */
     width: 100%;
     max-width: 100%;
     overflow: hidden;
-    /* Prevents scrolling */
 }
 
 header nav a {
     color: white;
     text-decoration: none;
     padding: 8px 12px;
-    /* Slightly reduced padding */
     transition: color 0.3s ease-in-out;
     white-space: nowrap;
     flex-shrink: 1;
-    /* Allows slight shrinking if needed */
     flex-grow: 1;
-    /* Allows items to grow and share space */
     text-align: center;
-    /* Centers text within each link */
     min-width: max-content;
-    /* Ensures text doesn't wrap */
 }
 
 header nav a:hover {
@@ -89,13 +82,11 @@ footer a:hover {
 @media (max-width: 768px) {
     nav {
         flex-wrap: wrap;
-        /* Allows wrapping on small screens */
         justify-content: center;
     }
 
     nav a {
         flex-grow: 0;
-        /* Prevents stretching on mobile */
         padding: 6px 10px;
         margin: 2px;
     }
