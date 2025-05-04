@@ -19,29 +19,80 @@
         padding: 2rem;
     }
 
-    /* Quiz container */
     .quiz-container {
-        background-color: #ffffffcc;
+        background: #f8f9fa;
+        padding: 2rem 2.5rem;
+        margin: 3rem auto;
         max-width: 600px;
-        margin: auto;
-        padding: 2rem;
-        border-radius: 16px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Title and question counter */
-    .quiz-container h1 {
-        text-align: center;
-        font-size: 2rem;
-        margin-bottom: 1rem;
+        border-radius: 1rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        font-family: 'Segoe UI', sans-serif;
         color: #333;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        /* evenly space out child elements */
     }
 
     .quiz-container h2 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-        color: #555;
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
     }
+
+    .quiz-container p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #34495e;
+        margin: 0;
+    }
+
+    .options label {
+        display: block;
+        margin: 0.5rem 0;
+        padding-left: 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .options input[type="radio"] {
+        margin-right: 0.6rem;
+    }
+
+    .quiz-navigation {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .quiz-navigation button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .quiz-navigation button:hover:not(:disabled) {
+        background-color: #0056b3;
+    }
+
+    .quiz-navigation button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+
+    #result {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #28a745;
+        text-align: center;
+    }
+
 
     /* Answers styling */
     .answers {
