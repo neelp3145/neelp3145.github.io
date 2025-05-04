@@ -190,4 +190,61 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('There was an error in your code: ' + error.message);
         }
     }
+
+    // Interactive JavaScript Quiz
+    const quizData = [
+        {
+            question: "Which keyword declares a variable in JavaScript?",
+            options: ["var", "define", "set", "int"],
+            answer: "var"
+        },
+        {
+            question: "What does DOM stand for?",
+            options: ["Document Object Model", "Data Object Manager", "Digital Ordinance Model", "Desktop Oriented Mode"],
+            answer: "Document Object Model"
+        },
+        {
+            question: "Which method adds a new element to the end of an array?",
+            options: ["push()", "append()", "insert()", "addToEnd()"],
+            answer: "push()"
+        }
+    ];
+
+    function loadQuiz() {
+        const quiz = document.getElementById('quiz');
+        if (!quiz) return;
+
+        quiz.innerHTML = quizData.map((q, index) => {
+            const optionsHTML = q.options.map(option => `
+      <label>
+        <input type="radio" name="q${index}" value="${option}" />
+        ${option}
+      </label>
+    `).join('<br>');
+
+            return `
+      <div class="quiz-question">
+        <p><strong>Q${index + 1}:</strong> ${q.question}</p>
+        ${optionsHTML}
+      </div>
+    `;
+        }).join('<hr>');
+    }
+
+    function submitQuiz() {
+        let score = 0;
+
+        quizData.forEach((q, i) => {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected && selected.value === q.answer) {
+                score++;
+            }
+        });
+
+        const result = document.getElementById('quiz-score');
+        result.textContent = `You scored ${score} out of ${quizData.length}!`;
+    }
+
+    window.addEventListener('DOMContentLoaded', loadQuiz);
+
 });
